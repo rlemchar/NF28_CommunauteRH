@@ -1,3 +1,4 @@
+/*
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -39,3 +40,17 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+*/
+
+// CODE BASIQUE DE TEST
+
+var express = require('express');
+
+var app = express();
+
+app.get('/', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.send('Vous êtes à l\'accueil');
+});
+
+app.listen(80);
