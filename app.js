@@ -42,7 +42,9 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 */
 
-// CODE BASIQUE DE TEST
+// CODE General de l'application
+// Traiter les routes ici
+// On utilise ejs pour renvoyer les vues
 
 var express = require('express');
 
