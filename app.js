@@ -46,16 +46,10 @@ module.exports = app;
 
 var express = require('express');
 
-// View engine setup
-app.set('views', './views');
-app.set('view engine', 'pug');
-
-
 var app = express();
 
 app.get('/', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    res.render('index');
+    res.render("index.ejs");
 });
 
 app.listen(8080);
