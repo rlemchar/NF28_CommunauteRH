@@ -50,7 +50,7 @@ var app = express();
 
 app.get('/', function(req, res) {
     res.setHeader('Content-Type', 'text/plain');
-    res.sendFile('public/index1.html' , { root : __dirname});
+    res.sendFile('views/index1.html' , { root : __dirname});
 });
 
 app.listen(8080);
