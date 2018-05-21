@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Recherche</title>
+        <style>
+            body
+            {
+                background-color:lightgrey;
+                color:black;
+            }
+            addKW
+            {
+                background-color:lightblue;
+                color:black;
+            }
+            supprKW
+            {
+                color:red;
+            }
+        </style>
+	</head>
+    <body>
+        <h3 id="titre">Rechercher une personne</h3>
+        <form method="get" action="/recherche/results">
+            <p>
+                <input type="text" name="nom" id="nom" placeholder="Nom"/>
+                <br/>
+                <br/>
+                <input type="text" name="prenom" id="prenom" placeholder="Prénom"/>
+                <br/>
+                <br/>
+                <input type="text" name="job" id="job" placeholder="Profession"/>
+            </p>
+        </form>
+        <form method="post" action="/recherche/addKeyWord">
+            <input type="text" name="newKW" id="newKW" placeholder="Ajouter un mot clé"/>
+            <input id="addKW" type="submit" value="+"/>
+        </form>
+        
+        <h4>Mots-clé :</h4>
+        <ul>
+        <% keywords.forEach(function(kw, index) { %>
+            <li><a id="supprKW" href="/recherche/supprKeyWord<%= index %>">✘</a> <%= kw %></li>
+        <% }); %>
+        </ul>
+        
+        
+    </body>
+</html>
