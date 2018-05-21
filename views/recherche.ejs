@@ -9,14 +9,20 @@
                 background-color:lightgrey;
                 color:black;
             }
-            addKW
+            #addKW
             {
                 background-color:lightblue;
                 color:black;
+                border-style:solid;
+                border-color:cornflowerblue;
             }
-            supprKW
+            #supprKW
             {
                 color:red;
+            }
+            #liste
+            {
+                list-style-type:none;
             }
         </style>
 	</head>
@@ -41,7 +47,7 @@
         <h4>Mots-clé :</h4>
         <ul>
         <% keywords.forEach(function(kw, index) { %>
-            <li><a id="supprKW" href="/recherche/supprKeyWord<%= index %>">✘</a> <%= kw %></li>
+            <li id="liste"><a id="supprKW" href="/recherche/supprKeyWord<%= index %>"><img src='https://cdn1.iconfinder.com/data/icons/everyday-2/64/x_cross_delete_stop-512.png'  style="width:16px; height:16px;" /></a> <%= kw %></li>
         <% }); %>
         </ul>
         
