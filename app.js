@@ -50,8 +50,11 @@ var express = require('express');
 var session = require('cookie-session'); // Charge le middleware de sessions
 var bodyParser = require('body-parser'); // Charge le middleware de gestion des paramètres
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var path = require('path');
 
 var app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({secret: 'todotopsecret'}));
 
@@ -85,5 +88,14 @@ app.get('/recherche/supprKeyWord:id', function(req, res) {
     }
     res.redirect('/recherche');
 });
+
+// Partie projet
+
+app.get('/widgetProject',function(req,res){
+    res.render("widgetProject.ejs", {width: 600});
+});
+
+
+
 
 app.listen(8080);
