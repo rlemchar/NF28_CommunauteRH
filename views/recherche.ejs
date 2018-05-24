@@ -6,37 +6,55 @@
 		<title>Recherche</title>
 	</head>
     <body>
-        <div id="partieRecherche">
-            <div id="formulaireRecherche">
-                <h3 id="titre">Rechercher une personne</h3>
-                <form method="get" action="/recherche/results">
-                    <p>
-                        <input type="text" name="nom" id="nom" placeholder="Nom"/>
-                        <br/>
-                        <br/>
-                        <input type="text" name="prenom" id="prenom" placeholder="Prénom"/>
-                        <br/>
-                        <br/>
-                        <input type="text" name="job" id="job" placeholder="Profession"/>
-                    </p>
-                </form>
-                <form method="post" action="/recherche/addKeyWord">
-                    <input type="text" name="newKW" id="newKW" placeholder="Ajouter un mot clé"/>
-                    <input id="addKW" type="submit" value="+"/>
-                </form>
-            </div>  
-            <div id="KeyWordsList">
-                <h4>Mots-clé :</h4>
-                <ul>
-                <% keywords.forEach(function(kw, index) { %>
-                    <li id="liste"><a id="supprKW" href="/recherche/supprKeyWord<%= index %>"><img src='https://cdn1.iconfinder.com/data/icons/everyday-2/64/x_cross_delete_stop-512.png'  style="width:16px; height:16px;" /></a> <%= kw %></li>
-                <% }); %>
-                </ul>
+        <div id="moitieDroite">
+            <div id="partieRecherche">
+                <div id="formulaireRecherche">
+                    <h3 id="titre">Rechercher une personne</h3>
+                    <form id="rechercher" method="get" action="/recherche/results">
+                        <p>
+                            <input type="text" name="nom" id="nom" placeholder="Nom"/>
+                            <br/>
+                            <br/>
+                            <input type="text" name="prenom" id="prenom" placeholder="Prénom"/>
+                            <br/>
+                            <br/>
+                            <input type="text" name="job" id="job" placeholder="Profession"/>
+                        </p>
+                    </form>
+                    <form method="post" action="/recherche/addKeyWord">
+                        <input type="text" name="newKW" id="newKW" placeholder="Ajouter un mot-clé"/>
+                        <input id="addKW" type="submit" value="+"/>
+                    </form>
+                </div> 
+
+                <div id="KeyWordsList">
+                    <h4>Mots-clé :</h4>
+                    <ul id="divListe">
+                    <% keywords.forEach(function(kw, index) { %>
+                        <li id="liste"><a id="supprKW" href="/recherche/supprKeyWord<%= index %>"><img src='https://cdn1.iconfinder.com/data/icons/everyday-2/64/x_cross_delete_stop-512.png'  style="width:16px; height:16px;" /></a> <%= kw %></li>
+                    <% }); %>
+                    </ul>
+                </div>
+
+                <div id="divBoutonRecherche">
+                    <button id="boutonRecherche" type="submit" form_id="rechercher">Lancer la recherche</button>
+                </div>
             </div>
-            <div id="boutonRecherche">
-                <input id="bouton" type="submit" value="Lancer la recherche"/>
+    
+            <div id="resultatsRecherche">
+                
             </div>
+    </div>
+        
+    <div id="moitieGauche">
+        <div id="divOrganigramme">
+            <p>Organigramme :
+                <select id="selectOrganigramme">
+
+                </select>
+            </p>
         </div>
+    </div>
         
     </body>
 </html>
