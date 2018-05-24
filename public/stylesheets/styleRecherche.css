@@ -1,11 +1,18 @@
+#moitieDroite
+{
+    float:right;
+    width: 50%;
+    height: auto;
+}
+
 #partieRecherche
 {
     background-color:lightgrey;
     color:black;
     position:relative;
-    float: right;
-    width: 50%;
-    height: 50%;
+    float:left;
+    width:100%;
+    height:40%;
 }
 
 #formulaireRecherche
@@ -13,6 +20,7 @@
     float:left;
     position: inherit;
     left : 10px;
+    top: -10px;
 }
 
 #KeyWordsList
@@ -31,17 +39,38 @@
     border-color:cornflowerblue;
 }
 
-#supprKW
-{
-    color:red;
-}
-
 #liste
 {
     list-style-type:none;
 }
 
-#boutonRecherche
+#divListe
+{
+    position: inherit;
+    left: -35px;
+    top: -10px;
+}
+
+#divBoutonRecherche
 {
     float: right;
+    position:relative;
 }
+
+#boutonRecherche
+{
+    position: inherit;
+    right: 10px;
+    top: 180px;
+}
+
+#resultatsRecherche
+{
+    background-color: whitesmoke;
+    width: 100%;
+    height:60%;
+}
+
+
+
+
