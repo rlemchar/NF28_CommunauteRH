@@ -1,8 +1,35 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.header-height{
+  height:50px;
+}
+
+.logo{
+  height: 50px;
+  width: auto;
+}
+
+.user-logo{
+  height: 25px;
+  width: auto;
+}
+
+.header-text{
+  color:black !important ;
+}
+
+.user-details{
+  margin : 0px 0px 0px 0px !important;
+  line-height: 14px !important;
+  font-size: 12px;
+}
+
+.user-details-p{
+  margin : 0px 0px 0px 0px !important;
 }
