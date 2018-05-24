@@ -1,0 +1,47 @@
+#partieRecherche
+{
+    background-color:lightgrey;
+    color:black;
+    position:relative;
+    float: right;
+    width: 50%;
+    height: 50%;
+}
+
+#formulaireRecherche
+{
+    float:left;
+    position: inherit;
+    left : 10px;
+}
+
+#KeyWordsList
+{
+    float:left;
+    position: relative;
+    left: 30px;
+    top : 20px;
+}
+
+#addKW
+{
+    background-color:lightblue;
+    color:black;
+    border-style:solid;
+    border-color:cornflowerblue;
+}
+
+#supprKW
+{
+    color:red;
+}
+
+#liste
+{
+    list-style-type:none;
+}
+
+#boutonRecherche
+{
+    float: right;
+}
