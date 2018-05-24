@@ -47,11 +47,55 @@ module.exports = app;
 // On utilise ejs pour renvoyer les vues
 
 var express = require('express');
+var session = require('cookie-session'); // Charge le middleware de sessions
+var bodyParser = require('body-parser'); // Charge le middleware de gestion des paramètres
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var path = require('path');
 
 var app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({secret: 'todotopsecret'}));
 
 app.get('/', function(req, res) {
     res.render("index.ejs");
 });
+
+//Partie recherche
+
+app.use(function(req, res, next){
+    if (typeof(req.session.keywords) == 'undefined') {
+        req.session.keywords = [];
+    }
+    next();
+});
+
+app.get('/recherche',function(req,res){
+    res.render("recherche.ejs", {keywords: req.session.keywords});
+});
+
+app.post('/recherche/addKeyWord', urlencodedParser, function(req, res) {
+    if (req.body.newKW != '') {
+        req.session.keywords.push(req.body.newKW);
+    }
+    res.redirect('/recherche');
+});
+
+app.get('/recherche/supprKeyWord:id', function(req, res) {
+    if (req.params.id != '') {
+        req.session.keywords.splice(req.params.id, 1);
+    }
+    res.redirect('/recherche');
+});
+
+// Partie projet
+
+app.get('/widgetProject',function(req,res){
+    res.render("widgetProject.ejs", {width: 600});
+});
+
+
+
 
 app.listen(8080);
