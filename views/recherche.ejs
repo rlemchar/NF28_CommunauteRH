@@ -10,7 +10,7 @@
             <div id="partieRecherche">
                 <div id="formulaireRecherche">
                     <h3 id="titre">Rechercher une personne</h3>
-                    <form method="get" action="/recherche/results">
+                    <form id="rechercher" method="get" action="/recherche/results">
                         <p>
                             <input type="text" name="nom" id="nom" placeholder="Nom"/>
                             <br/>
@@ -37,13 +37,23 @@
                 </div>
 
                 <div id="divBoutonRecherche">
-                    <input id="boutonRecherche" type="button" value="Lancer la recherche"/>
+                    <button id="boutonRecherche" type="submit" form_id="rechercher">Lancer la recherche</button>
                 </div>
             </div>
     
             <div id="resultatsRecherche">
-                test
+                
             </div>
+    </div>
+        
+    <div id="moitieGauche">
+        <div id="divOrganigramme">
+            <p>Organigramme :
+                <select id="selectOrganigramme">
+
+                </select>
+            </p>
+        </div>
     </div>
         
     </body>
