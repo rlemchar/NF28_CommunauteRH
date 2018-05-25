@@ -18,25 +18,37 @@
   </style>
 </head>
 
-<body class="container">
+<body id="main-container" class="container">
 
 <header>
   <% include header %>
 </header>
 
-<!--
 
-ADD HERE RIGHT BLOCK
+<!-- Wrapping the side bar and content together -->
+<div class="wrapper">
 
- -->
+    <!-- Main content -->
+    <div id="main-content" class="col-md-8">
+        <main>
+            <div class="jumbotron">
+                <h1>Sopra project</h1>
+                <p>best project</p>
+            </div>
+        </main>
 
 
-<main>
-    <div class="jumbotron">
-        <h1>Sopra project</h1>
-        <p>best project</p>
     </div>
-</main>
+
+    <!-- Side bar -->
+    <div class="col-md-4" style="background-color: #A8A8A8 !important;">
+        <% include sidebar %>
+    </div>
+
+
+</div>
+
+
 
 <footer>
     <p class="text-center text-muted">© Copyright 2018 Projet NF28 - UTC</p>

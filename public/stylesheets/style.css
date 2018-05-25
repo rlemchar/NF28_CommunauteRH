@@ -33,3 +33,22 @@ a {
 .user-details-p{
   margin : 0px 0px 0px 0px !important;
 }
+
+.wrapper {
+  display: flex;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  height: 100vh;
+}
+
+#main-content{
+  padding: 0px 0px 0px 0px;
+}
+
+#main-container{
+  padding-right: 0px;
+  margin-right: 0px;
+}
