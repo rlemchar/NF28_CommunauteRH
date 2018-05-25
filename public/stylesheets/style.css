@@ -74,3 +74,10 @@ a {
   height: 40px;
   width: auto;
 }
+
+.centerImage {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
