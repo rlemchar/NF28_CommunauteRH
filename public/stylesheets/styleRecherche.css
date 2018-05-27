@@ -1,8 +1,6 @@
 #moitieDroite
 {
     float:right;
-    width: 50%;
-    height: auto;
 }
 
 #partieRecherche
@@ -10,25 +8,21 @@
     background-color:lightgrey;
     color:black;
     position:relative;
-    float:left;
-    width:100%;
-    height:40%;
+    height: 230px;
 }
 
 #formulaireRecherche
 {
     float:left;
     position: inherit;
-    left : 10px;
-    top: -10px;
 }
 
 #KeyWordsList
 {
     float:left;
     position: relative;
-    left: 30px;
-    top : 20px;
+    left: -50px;
+    top: -5px;
 }
 
 #addKW
@@ -47,36 +41,26 @@
 #divListe
 {
     position: inherit;
-    left: -35px;
-    top: -10px;
-}
-
-#divBoutonRecherche
-{
-    float: right;
-    position:relative;
 }
 
 #boutonRecherche
 {
     position: inherit;
-    right: 10px;
-    top: 180px;
+    top: 140px;
+    left: 10px;
 }
 
 #resultatsRecherche
 {
     background-color: whitesmoke;
     overflow: scroll;
-    width: 100%;
-    height: 60%;
+    height: 400px;
 }
 
 #moitieGauche
 {
     background-color: white;
     float:left;
-    width:50%;
 }
 
 #selectOrganigramme

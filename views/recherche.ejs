@@ -25,11 +25,15 @@
           <% include header %>
         </header>
 
-        <div id="moitieDroite">
-            <div id="partieRecherche">
-                <div id="formulaireRecherche">
-                    <h3 id="titre">Rechercher une personne</h3>
-                    <form id="rechercher" method="get" action="/recherche/results">
+        <div id="moitieDroite" class="col-md-6">
+            
+            <div id="partieRecherche" class="col-md-12">
+
+                <h3 id="titre">Rechercher une personne</h3>
+
+                <div id="formulaireRecherche" class="col-md-5">
+
+                    <form id="rechercher" method="post" action="/recherche/results">
                         <p>
                             <input type="text" name="nom" id="nom" placeholder="Nom"/>
                             <br/>
@@ -40,40 +44,49 @@
                             <input type="text" name="job" id="job" placeholder="Profession"/>
                         </p>
                     </form>
+
                     <form method="post" action="/recherche/addKeyWord">
                         <input type="text" name="newKW" id="newKW" placeholder="Ajouter un mot-clé"/>
                         <input id="addKW" type="submit" value="+"/>
                     </form>
+
                 </div> 
 
-                <div id="KeyWordsList">
-                    <h4>Mots-clé :</h4>
-                    <ul id="divListe">
+                <div id="KeyWordsList" class="col-md-4">
+                    <h5>Mots-clé :</h5>
+                    <ul id="divListe" class="list-unstyled">
                     <% keywords.forEach(function(kw, index) { %>
                         <li id="liste"><a id="supprKW" href="/recherche/supprKeyWord<%= index %>"><img src='https://cdn1.iconfinder.com/data/icons/everyday-2/64/x_cross_delete_stop-512.png'  style="width:16px; height:16px;" /></a> <%= kw %></li>
                     <% }); %>
                     </ul>
                 </div>
 
-                <div id="divBoutonRecherche">
-                    <button id="boutonRecherche" type="submit" form_id="rechercher">Lancer la recherche</button>
-                </div>
-            </div>
-    
-            <div id="resultatsRecherche">
-                
-            </div>
-    </div>
-        
-    <div id="moitieGauche">
-        <div id="divOrganigramme">
-            <p>Organigramme :
-                <select id="selectOrganigramme">
+                <button id="boutonRecherche" type="submit" form_id="rechercher">Lancer la recherche</button>
 
-                </select>
-            </p>
+            </div>
+            
+            <div id="resultatsRecherche" class="col-md-12">
+                <form id="loadResults" method="get" action="/recherche/results">
+                      <% include resultatRecherche %>
+                </form>
+            </div>
+            
         </div>
-    </div>
+
+        <div id="moitieGauche" class="col-md-6">
+            <div id="divOrganigramme">
+                <p>Organigramme :
+                    <select id="selectOrganigramme">
+                        <option>test</option>
+                        <option>test2</option>
+                    </select>
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p class="text-center text-muted">© Copyright 2018 Projet NF28 - UTC</p>
+        </footer>
         
     </body>
 </html>
