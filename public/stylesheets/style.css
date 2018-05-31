@@ -105,13 +105,16 @@ a {
   top: 8px;
   right: 30px;
   font-size: 20px;
+  color: white;
 }
 
 /* Bottom right text */
 .bottom-right {
   position: absolute;
-  bottom: 8px;
+  top: 630px;
   right: 16px;
+  font-size: 20px;
+  color: grey;
 }
 
 /* Centered text */
@@ -124,4 +127,13 @@ a {
 
 #welcome-text{
   font-size: 25px;
+}
+
+#whiteboard{
+  position : absolute;
+  background-color : red;
+  overflow:hidden;
+  height : 0;
+  transition : height 0.5s;
+  transition-timing-function : ease-in;
 }
