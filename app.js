@@ -52,10 +52,15 @@ var bodyParser = require('body-parser'); // Charge le middleware de gestion des 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var path = require('path');
 
+
 var app = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));	// Faire en sorte que le dossier public soit la "base" pour les url des css, img, script...
 
+/* Dans un .ejs du dossier view, pour charger un un css qui se trouve dans /public/stylesheets/style.css
+	Il faut dans la balise link mettre href="/stylesheet/style.css"
+	En fait, la ligne ci-dessus permet de dire que la racine "/" est le dossier public
+*/
 app.use(session({secret: 'todotopsecret'}));
 
 app.get('/', function(req, res) {
