@@ -130,9 +130,30 @@ a {
 
 #whiteboard{
   position : absolute;
-  background-color : red;
+  background-color : whitesmoke;
   overflow:hidden;
   height : 0;
   transition : height 0.5s;
   transition-timing-function : ease-in;
+}
+
+#plusButton {
+  position: absolute;
+  top: 30%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+}
+
+#plus{
+  height: 40px;
+  width: auto;
+  display: none;
+}
+
+.publication-option{
+  height: 75px;
+}
+
+.publication-choice:hover{
+  background-color: cadetblue;
 }
