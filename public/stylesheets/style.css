@@ -82,6 +82,7 @@ a {
 
 .centerImage {
   overflow: hidden;
+  width: 1200px;
 }
 
 /* Bottom left text */
@@ -139,7 +140,7 @@ a {
 
 #plusButton {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 95%;
   transform: translate(-50%, -50%);
 }
@@ -166,8 +167,60 @@ aside {
   position:  absolute;
   left: 0;
   top: 0; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-  width: 200px;
   background: rgba(255,255,255,0.66);
   border: 2px  solid rgba(0,0,0,0.5);
   border-radius: 4px; padding: 8px;
+  resize: both;
+  overflow: auto;
+  height: fit-content;
+  width:auto;
 }
+
+#publicationText{
+  background-color:aliceblue;
+  height:500px;
+  width: 568px;
+  resize: none;
+  border: 0px;
+
+}
+
+.textPost{
+  width:fit-content;
+  height: auto;
+}
+
+.imagePost{
+  width:fit-content;
+  height: auto;
+}
+
+.imageInsidePost{
+  width: 100%;
+  display:block;
+
+}
+
+#publicationTextTitle{
+  background-color:aliceblue;
+  margin: 10px;
+  margin-left: 0px;
+  border: 0px;
+  width: 568px;
+}
+
+#surveyTitle{
+  width: 500px;
+}
+
+#surveyPlus{
+  margin-left: 35px;
+  width: 20px;
+}
+
+#surveyMinus{
+  margin-left: 30px;
+  width: 20px;
+}
+
+
