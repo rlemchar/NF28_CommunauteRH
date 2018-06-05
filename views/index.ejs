@@ -41,16 +41,26 @@
             $("#text-publi-option").click(function(){
                 $("#publications").append(
                     "<aside draggable=\"true\" class=\"draggable\">\n" +
-                    "    This is an aside, drag me.\n" +
+                    "    This is a text .\n" +
                     "</aside>"
                 );
                 makePostsDraggable();
             });
             $("#image-publi-option").click(function(){
-                $("#publications").append(" <b>Appended text</b>.");
+                $("#publications").append(
+                    "<aside draggable=\"true\" class=\"draggable\">\n" +
+                    "    This is an image.\n" +
+                    "</aside>"
+                );
+                makePostsDraggable();
             });
             $("#survey-publi-option").click(function(){
-                $("#publications").append(" <b>Appended text</b>.");
+                $("#publications").append(
+                    "<aside draggable=\"true\" class=\"draggable\">\n" +
+                    "    This is a survey.\n" +
+                    "</aside>"
+                );
+                makePostsDraggable();
             });
         });
 
@@ -130,7 +140,7 @@
         <div id="whiteboard" class="col-md-8">
             <a href="#" onclick="displayWhiteboard()"><i class="glyphicon glyphicon-menu-up bottom-right"></i></a>
             <!-- The + button triggers the modal -->
-            <button type="button" id="plusButton" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+            <button type="button" id="plusButton" class="btn" data-toggle="modal" data-target="#demo-modal">
                 <img id="plus" src="img/plus.png">
             </button>
             <div id="publications">
@@ -138,8 +148,130 @@
             </div>
         </div>
 
+        <!-- Side bar -->
+        <div id="sidebar-container" class="col-md-4" >
+            <% include sidebar %>
+        </div>
+
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+        <form class="modal multi-step" id="demo-modal">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <!--
+                                       <div class="modal-header">
+                                           <h5 class="modal-title" id="exampleModalLongTitle">Ajouter une publication</h5>
+                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                               <span aria-hidden="true">&times;</span>
+                                           </button>
+                                       </div>
+
+                                       <div class="modal-body step step-1">
+                                           <div class="container-fluid">
+                                               <a id="text-publi-option" href="#">
+                                                   <div class="row publication-choice">
+                                                       <div class="col-md-6">Text</div>
+                                                       <div class="col-md-6"> <img class="publication-option" src="img/text.png"></div>
+                                                   </div>
+                                                   <a id="image-publi-option" href="#">
+                                                       <div class="row publication-choice">
+                                                           <div class="col-md-6">Image</div>
+                                                           <div class="col-md-6"> <img class="publication-option" src="img/image.png"></div>
+                                                       </div>
+                                                   </a>
+                                                   <a id="survey-publi-option" href="#">
+                                                       <div class="row publication-choice">
+                                                           <div class="col-md-6">Sondage</div>
+                                                           <div class="col-md-6"> <img class="publication-option" src="img/sondage.png"></div>
+                                                       </div>
+                                                   </a>
+                                           </div>
+                                       </div>
+
+                                       <div class="modal-body step step-2">
+                                           <div class="container-fluid">
+                                               step 2
+                                           </div>
+                                       </div>
+
+
+                                       <div class="modal-body step step-3">
+                                           <div class="container-fluid">
+                                               step 3
+                                           </div>
+                                       </div>
+
+
+                                       <div class="modal-footer">
+                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                           <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent()">Continue</button>
+                                       </div>
+                                   </div>
+                               </div>
+                           </form>
+                     -->
+
+                    <!--
+                    MODAL STEPS DETAILS :
+
+                    STEP 1 : Choose type of publication
+                    STEP 2 : The user chose text
+                    STEP 3 : The user chose image
+                    STEP 4 : The user chose survey
+
+                    -->
+
+                    <div class="modal-header">
+                        <h4 class="modal-title step-1" data-step="1">Step 1</h4>
+                        <h4 class="modal-title step-2" data-step="2">Step 2</h4>
+                        <h4 class="modal-title step-3" data-step="3">Step 3</h4>
+                        <h4 class="modal-title step-4" data-step="4">Step 4</h4>
+                    </div>
+                    <div class="modal-body step step-1">
+                        <div class="container-fluid">
+                            <a href="#" onclick="sendEvent2()">
+                                <div class="row publication-choice">
+                                    <div class="col-md-6">Text</div>
+                                    <div class="col-md-6"> <img class="publication-option" src="img/text.png"></div>
+                                </div>
+                            </a>
+                            <a href="#" onclick="sendEvent3()">
+                                    <div class="row publication-choice">
+                                        <div class="col-md-6">Image</div>
+                                        <div class="col-md-6"> <img class="publication-option" src="img/image.png"></div>
+                                    </div>
+                            </a>
+                            <a href="#" onclick="sendEvent4()">
+                                    <div class="row publication-choice">
+                                        <div class="col-md-6">Sondage</div>
+                                        <div class="col-md-6"> <img class="publication-option" src="img/sondage.png"></div>
+                                    </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-body step step-2">
+                        <button id="text-publi-option" type="button" class="btn btn-default" data-dismiss="modal">Publish text</button>
+                    </div>
+                    <div class="modal-body step step-3">
+                        <button id="image-publi-option" type="button" class="btn btn-default" data-dismiss="modal">Publish Image</button>
+                    </div>
+                    <div class="modal-body step step-4">
+                        <button id="survey-publi-option" type="button" class="btn btn-default" data-dismiss="modal">Publish Survey</button>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <!--
+                        <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent1()">Continue</button>
+                        <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent2()">Continue to 3</button>
+                    -->
+                    </div>
+
+
+
+        <!--
+        <div class="modal fade multi-step" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -172,13 +304,10 @@
                 </div>
             </div>
         </div>
-
+        -->
         <!-------------------------------------------------------------------------->
 
-        <!-- Side bar -->
-        <div id="sidebar-container" class="col-md-4" >
-            <% include sidebar %>
-        </div>
+
 
 
     </div>
@@ -189,6 +318,20 @@
     <footer>
         <p class="text-center text-muted">© Copyright 2018 Projet NF28 - UTC</p>
     </footer>
+
+    <!-- Multi step modal -->
+    <script src="scripts/stepModal.js"></script>
+    <script>
+        sendEvent2 = function() {
+            $('#demo-modal').trigger('next.m.2');
+        }
+        sendEvent3 = function() {
+            $('#demo-modal').trigger('next.m.3');
+        }
+        sendEvent4 = function() {
+            $('#demo-modal').trigger('next.m.4');
+        }
+    </script>
 
 </body>
 
