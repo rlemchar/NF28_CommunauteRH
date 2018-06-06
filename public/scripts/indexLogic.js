@@ -19,12 +19,24 @@ function displayWhiteboard() {
 // -----------------------------------------
 
 // Creating posts
+
+var tilted = 1;
+var tiltedSpec ="";
+
 $(document).ready(function(){
     $("#text-publi-option").click(function(){
         var publicationText = document.getElementById("publicationText").value;
         var publicationTextTitle = document.getElementById("publicationTextTitle").value;
+        if (tilted == 1){
+            tiltedSpec = "tilted-left";
+            tilted = tilted*-1;
+        }else{
+            tiltedSpec = "tilted-right";
+            tilted = tilted*-1;
+        }
+        console.log(tiltedSpec);
         $("#publications").append(
-            "<aside draggable=\"true\" class=\"draggable textPost\">\n" +
+            "<aside draggable=\"true\" class=\"draggable " + tiltedSpec + " textPost\">\n" +
             "<h4>" +
             publicationTextTitle +
             "</h4>" +
@@ -39,7 +51,7 @@ $(document).ready(function(){
         var postedImgURL = document.getElementById("downloadedImg").src;
         $("#publications").append(
             "<aside draggable=\"true\" class=\"draggable imagePost\">" +
-            "<img class=\"imageInsidePost\" draggable=\"false\" id=\"downloadedImg\" src=\" " + String(postedImgURL) + " \" alt=\"yourimage\" />" +
+            "<img class=\"imageInsidePost\" draggable=\"false\" src=\" " + String(postedImgURL) + " \" alt=\"yourimage\" />" +
             "</aside>"
         );
         makePostsDraggable();
@@ -128,3 +140,46 @@ function makePostsDraggable(){
         });
 */
 // -----------------------------------------
+
+// Survey
+
+var index = 0;
+
+$(document).ready(function() {
+    $("#surveyAdd").click(function () {
+        nextID = "op" + index++;
+        console.log("in add option survey" + nextID);
+        $("#surveyOptions").append(" <div class=\"row\"> </div><input type=\"radio\" id=\" " + nextID + "\" name=\"op\"> " +
+            "<label for=\"op\"> <input class=\"addedOption\" id=\" " + nextID + "\" placeholder=\"Option\" autocomplete=\"off\"> </label> </div> ");
+    });
+
+    $("#surveyDelete").click(function () {
+
+    });
+});
+
+
+
+/*
+ <div>
+    <input type="radio" id="contactChoice1"
+     name="contact" value="email">
+    <label for="contactChoice1">Email</label>
+
+    <input type="radio" id="contactChoice2"
+     name="contact" value="telephone">
+    <label for="contactChoice2">Téléphone</label>
+
+    <input type="radio" id="contactChoice3"
+     name="contact" value="courrier">
+    <label for="contactChoice3">Courrier</label>
+  </div>
+ */
+
+
+
+
+
+// -----------------------------------------
+
+
