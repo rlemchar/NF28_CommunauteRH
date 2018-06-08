@@ -18,16 +18,17 @@ function Project(id, name, tasks, indexTask) {
 	};
 	
 	this.deadline = function() {
-		return "30 j";
+		var ldTab = (this.tasks[this.tasks.length-1][1]).split('/');
+		return (parseInt(((new Date(ldTab[2],parseInt(ldTab[1])-1,ldTab[0]))-(new Date()))/(1000*3600*24))+1) + " j";
 	}
 
 }
 
 // Array of projects, temporary (to be obtained from the SQL database in the future)
 var P = [
-	new Project(1,"Création d'un outil de recherche",[["tache1","date1"],["tache2","date2"],["tache3","date3"],["tache4","date4"]],1),
-	new Project(2,"Autre projet important",[["tache1","date1"],["tache2","date2"],["tache3","date3"],["tache4","date4"]],2),
-	new Project(3,"Autre projet important important très très important mais genre vraiment vraiment vraiment vraiiiiment important, genre vraiment",[["tache1","date1"],["tache2","date2"],["tache3","date3"],["tache4","date4"]],2)
+	new Project(1,"Création d'un outil de recherche",[["Implémenter la BDD","14/05/2018"],["Faire les algos de recherche","27/05/2018"],["Implémenter l'interface","05/06/2018"],["Ajouter au serveur","14/06/2018"]],1),
+	new Project(2,"Développement d'un whiteboard",[["Dessiner l'interface","12/05/2018"],["Implémenter les fonctionnalités","30/05/2018"],["Gérer le temps réel","04/06/2018"],["Ajouter à l'interface","10/06/2018"]],2),
+	new Project(3,"Conception d'un outil de management de projets",[["Créer le widget","16/05/2018"],["Faire une page d'ajout","02/06/2018"],["Développer l'affichage","09/06/2018"],["Implémenter au serveur","12/06/2018"]],2)
 ];
 
 // Display the projects from the array P
@@ -85,15 +86,14 @@ function cssTask(id, task=0) {
 // Put the right dimension of all the containers of the widget from the width in pixel of the #widgetProject 
 // (it's the only size that must be given, everything else is calculated from this)	
 function sizeWidget() {
-	$('#widgetProject').css('height',0.5*$('#widgetProject').width());
+	$('#widgetProject').css('height',0.6*$('#widgetProject').width());
 	$('#nameWidgetProject').css('font-size', 0.9*$('#nameWidgetProject').height());
 	$('#addNewProject').css('border-width',0.01*$('#arrayOfProjects').height());
-	$('#addNewProject').css('height',"calc(100% - "+  0.02*$('#arrayOfProjects').height()+"px)");
 	$('.arrowProject').each(function(index) {
 		$(this).css('border-width',0.03*$('contentProject').height());
 	}); 
 	$('.nameProject').each(function(index) {
-		$(this).css('font-size', 0.43*$(this).height());
+		$(this).css('font-size', 0.38*$(this).height());
 	});
 	$('.deadlineProject').each(function(index) {
 		$(this).css('font-size', 0.67*$(this).height());

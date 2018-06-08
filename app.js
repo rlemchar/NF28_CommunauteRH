@@ -64,7 +64,7 @@ app.use(express.static(path.join(__dirname, 'public')));	// Faire en sorte que l
 app.use(session({secret: 'todotopsecret'}));
 
 app.get('/', function(req, res) {
-    res.render("index.ejs");
+    res.render("index.ejs", {p: 0});
 });
 
 //Partie recherche
@@ -98,6 +98,14 @@ app.get('/recherche/supprKeyWord:id', function(req, res) {
 
 app.get('/widgetProject',function(req,res){
     res.render("widgetProject.ejs", {width: 600});
+});
+
+app.get('/newProject', function(req, res) {
+	res.render('index.ejs', {p: 1});
+});
+
+app.get('/newProjectW', function(req, res) {
+	res.render('newProjectW.ejs');
 });
 
 

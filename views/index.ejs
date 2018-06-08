@@ -32,13 +32,17 @@
 
     <!-- Wrapping the side bar and content together -->
     <div class="wrapper">
-
         <!-- Main content -->
         <div id="main-content" class="col-md-8">
+		<% if (p == 0) { %>
             <img class="centerImage"src="img/peaceful.jpg">
             <div id="welcome-text" class="centered">Bienvenue, Ronaldo</div>
             <a href="#" onclick="displayWhiteboard()"><i class="glyphicon glyphicon-menu-down top-right"></i></a>
+        	<% } else if (p == 1) { %>
+        		<iframe style='width:100%;height:100%;border:none' src='newProjectW'></iframe>
+        	<% } %>
         </div>
+
 
         <!-------------------------------------------------------------------------->
         <!-- Whiteboard -->
