@@ -41,6 +41,7 @@ function results() {
             var pers;
             var comp;
             var lan;
+            var level;
             var lastname;
             var name;
             var job;
@@ -65,11 +66,13 @@ function results() {
                 //alert(comp[0].childNodes[0].nodeValue);
                 //alert(comp[1].childNodes[0].nodeValue);
                 lan = pers.getElementsByTagName("langues");
+                level = pers.getElementsByTagName("niveau");
                 lastname = pers.getElementsByTagName("nom")[0].childNodes[0].nodeValue;
                 name = pers.getElementsByTagName("prenom")[0].childNodes[0].nodeValue;
                 job = pers.getElementsByTagName("metier")[0].childNodes[0].nodeValue;
                 company = pers.getElementsByTagName("entreprise")[0].childNodes[0].nodeValue;
                 city = pers.getElementsByTagName("ville")[0].childNodes[0].nodeValue;
+                
                 
                 if (nom == lastname || prenom == name || metier == job){
                     test = 1;
@@ -129,7 +132,7 @@ function results() {
                     result += "<b>Langues</b>";
                     result += "<ul id = \"lLangues\" class=\"list-unstyled\" ";
                     for (z = 0; z < lan.length; z++) {
-                        result += "<li>" + lan[z].childNodes[0].nodeValue + "</li>";
+                        result += "<li>" + lan[z].childNodes[0].nodeValue + " " + level[z].childNodes[0].nodeValue + "</li>";
                     }
                     result += "</ul>";
                     

@@ -4,12 +4,15 @@
     <ID>1</ID>
     <nom>GARCIN</nom>
     <prenom>Emma</prenom>
-    <metier>Graphiste</metier>
+    <metier>Développeur Web</metier>
     <entreprise>Sopra Steria</entreprise>
     <ville>Paris</ville>
-    <competences>Java</competences>
-    <competences>test</competences>
-    <langues>Anglais</langues>
+    <competences>JavaScript</competences>
+    <competences>CSS</competences>
+    <competences>HTML</competences>
+    <competences>bootstrap</competences>
+    <langues>Anglais</langues><niveau>C1</niveau>
+    <langues>Espagnol</langues><niveau>A2</niveau>
   </personne>
 
   <personne>
@@ -20,7 +23,12 @@
     <entreprise>Sopra Steria</entreprise>
     <ville>Lille</ville>
     <competences>UX Design</competences>
-    <langues>Allemand</langues>
+    <competences>JavaScript</competences>
+    <competences>Node.js</competences>
+    <competences>C++</competences>
+    <competences>Java</competences>
+    <langues>Allemand</langues><niveau>B2</niveau>
+    <langues>Chinois</langues><niveau>B1</niveau>
   </personne>
 
 </CATALOG>
