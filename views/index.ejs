@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Projet NF28</title>
 
+    <!-- Adding jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
       <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -13,20 +16,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script>
-        var wb = false;
-        function displayWhiteboard() {
-            var main = document.getElementById("main-content");
-            var whiteboard = document.getElementById("whiteboard");
-            var h = main.offsetHeight;
-            if (wb) {
-                whiteboard.style.height = "0";
-            } else {
-                whiteboard.style.height = h+'px';
-            }
-            wb = !wb;
-        }
-    </script>
+    <script src="scripts/indexLogic.js"></script>
 
     <style>
         body    { padding-top:50px; }
@@ -50,26 +40,134 @@
             <a href="#" onclick="displayWhiteboard()"><i class="glyphicon glyphicon-menu-down top-right"></i></a>
         </div>
 
+        <!-------------------------------------------------------------------------->
         <!-- Whiteboard -->
         <div id="whiteboard" class="col-md-8">
             <a href="#" onclick="displayWhiteboard()"><i class="glyphicon glyphicon-menu-up bottom-right"></i></a>
-        </div>
+            <!-- The + button triggers the modal -->
+            <button type="button" id="plusButton" class="btn" data-toggle="modal" data-target="#demo-modal">
+                <img id="plus" src="img/plus.png">
+            </button>
+            <div id="publications">
 
+            </div>
+        </div>
 
         <!-- Side bar -->
         <div id="sidebar-container" class="col-md-4" >
             <% include sidebar %>
         </div>
 
+        <!-- Modal -->
 
+        <form class="modal multi-step" id="demo-modal">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <!--
+                    MODAL STEPS DETAILS :
+
+                    STEP 1 : Choose type of publication
+                    STEP 2 : The user chose text
+                    STEP 3 : The user chose image
+                    STEP 4 : The user chose survey
+
+                    -->
+
+                    <div class="modal-header">
+                        <h4 class="modal-title step-1" data-step="1">Choisir un type de publication</h4>
+                        <h4 class="modal-title step-2" data-step="2">Poster un texte</h4>
+                        <h4 class="modal-title step-3" data-step="3">Poster une image</h4>
+                        <h4 class="modal-title step-4" data-step="4">Poster un sondage</h4>
+                    </div>
+                    <div class="modal-body step step-1">
+                        <div class="container-fluid">
+                            <a href="#" onclick="sendEvent2()">
+                                <div class="row publication-choice">
+                                    <div class="col-md-6">Poster un texte</div>
+                                    <div class="col-md-6"> <img class="publication-option" src="img/text.png"></div>
+                                </div>
+                            </a>
+                            <a href="#" onclick="sendEvent3()">
+                                    <div class="row publication-choice">
+                                        <div class="col-md-6">Poster une image</div>
+                                        <div class="col-md-6"> <img class="publication-option" src="img/image.png"></div>
+                                    </div>
+                            </a>
+                            <a href="#" onclick="sendEvent4()">
+                                    <div class="row publication-choice">
+                                        <div class="col-md-6">Poster un sondage</div>
+                                        <div class="col-md-6"> <img class="publication-option" src="img/sondage.png"></div>
+                                    </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-body step step-2">
+                        <div class="container">
+                            <div class="row">
+                                <input id="publicationTextTitle" placeholder="Titre" autocomplete="off">
+                            </div>
+                            <div class="row">
+                                    <textarea id="publicationText" placeholder="Votre texte .." autocomplete="off" type="text" name="firstname" value="text"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-body step step-3">
+                        <div class="container fitContainer">
+                            <img id="downloadedImg" class="fitContainer" alt="" />
+                            <input type="file"
+                                   onchange="document.getElementById('downloadedImg').src = window.URL.createObjectURL(this.files[0])">
+                        </div>
+                    </div>
+
+                    <div class="modal-body step step-4">
+                        <div class="container">
+                            <div class="row">
+                                <input id="surveyTitle" placeholder="Question" autocomplete="false">
+                                <button  type="button" id="surveyAdd" class="btn btn-default" > + </button>
+                                <button  type="button" id="surveyDelete" class="btn btn-default" > - </button>
+                            </div>
+                            <div id="surveyOptions" class="row">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="text-publi-option" type="button" class="btn btn-default step step-2" data-dismiss="modal">Publier</button>
+                        <button id="image-publi-option" type="button" class="btn btn-default step step-3" data-dismiss="modal">Publier</button>
+                        <button id="survey-publi-option" type="button" class="btn btn-default step step-4" data-dismiss="modal">Publier</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                        <!--
+                        <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent1()">Continue</button>
+                        <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent2()">Continue to 3</button>
+                    -->
+                    </div>
     </div>
-
-
 
 
     <footer>
         <p class="text-center text-muted">© Copyright 2018 Projet NF28 - UTC</p>
     </footer>
+
+    <!-- Multi step modal -->
+    <script src="scripts/stepModal.js"></script>
+    <script>
+        sendEvent2 = function() {
+            $('#demo-modal').trigger('next.m.2');
+        }
+        sendEvent3 = function() {
+            $('#demo-modal').trigger('next.m.3');
+        }
+        sendEvent4 = function() {
+            $('#demo-modal').trigger('next.m.4');
+        }
+    </script>
 
 </body>
 

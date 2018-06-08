@@ -83,6 +83,7 @@ a {
 
 .centerImage {
   overflow: hidden;
+  width: 1200px;
 }
 
 /* Bottom left text */
@@ -131,9 +132,128 @@ a {
 
 #whiteboard{
   position : absolute;
-  background-color : red;
+  background-color : whitesmoke;
   overflow:hidden;
   height : 0;
   transition : height 0.5s;
   transition-timing-function : ease-in;
+  background-image: url(../img/tableau.jpg);
 }
+
+#plusButton {
+  position: absolute;
+  top: 40%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+}
+
+#plus{
+  height: 40px;
+  width: auto;
+  display: none;
+}
+
+.publication-option{
+  height: 75px;
+}
+
+.publication-choice{
+  margin: 10px;
+  padding: 10px;
+  color: black;
+  font-size: 15px;
+;
+}
+
+.publication-choice:hover{
+  background-color: aliceblue;
+}
+
+#publications{
+}
+
+/* Drag and drop */
+aside {
+  position:  absolute;
+  left: 0;
+  top: 0; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+  background: rgba(255,255,255,0.66);
+  border: 2px  solid rgba(0,0,0,0.5);
+  border-radius: 4px; padding: 8px;
+  resize: both;
+  overflow: auto;
+  height: fit-content;
+  width:auto;
+}
+
+#publicationText{
+  background-color:aliceblue;
+  height:500px;
+  width: 568px;
+  resize: none;
+  border: 0px;
+
+}
+
+.textPost{
+  width:fit-content;
+  height: auto;
+}
+
+.imagePost{
+  width:fit-content;
+  height: auto;
+}
+
+.imageInsidePost{
+  width: 100%;
+  display:block;
+
+}
+
+#publicationTextTitle{
+  background-color:aliceblue;
+  margin: 10px;
+  margin-left: 0px;
+  border: 0px;
+  width: 568px;
+}
+
+#surveyTitle{
+  width: 500px;
+  margin-bottom: 30px;
+}
+
+#surveyPlus{
+  margin-left: 35px;
+  width: 20px;
+}
+
+#surveyMinus{
+  margin-left: 30px;
+  width: 20px;
+}
+
+#downloadedImg{
+
+}
+
+.fitContainer {
+  display: block;
+  width: 100%;
+}
+
+.addedOption{
+  width: 540px;
+}
+
+.tilted-left{
+  transform : rotate(3deg);
+}
+
+.tilted-right{
+  transform : rotate(-3deg);
+}
+
+
+
