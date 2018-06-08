@@ -21,7 +21,6 @@ function Project(id, name, tasks, indexTask) {
 		var ldTab = (this.tasks[this.tasks.length-1][1]).split('/');
 		return (parseInt(((new Date(ldTab[2],parseInt(ldTab[1])-1,ldTab[0]))-(new Date()))/(1000*3600*24))+1) + " j";
 	}
-
 }
 
 // Array of projects, temporary (to be obtained from the SQL database in the future)
@@ -52,7 +51,7 @@ function loadProjects(projects) {
 		cssBar(ele.id, ele.getTask());
 		cssTask(ele.id, ele.getTask());
 	});
-
+	$('.nameProject').click(() => {location.href='viewProject';});
 }
 	
 // Get the project object from its ID

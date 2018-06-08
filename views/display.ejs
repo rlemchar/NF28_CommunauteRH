@@ -1,0 +1,452 @@
+<head>
+	<meta charset="UTF-8" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200i" rel="stylesheet">
+	<style>
+	#project {
+		font-family : arial;
+		width : 100%;
+		overflow:scroll;
+		position : absolute;
+		color : #252F3A;
+		font-size : 1em;
+	}
+	#headerProject {
+		position : relative;
+		max-height : 13em;
+		width : 90%;
+		left : 5%;
+		top : 1em;
+		overflow : hidden;
+		transition : max-height 0.5s;
+	}
+	#titleProject {
+		font-size : 400%;
+		font-family : raleway;
+	}
+	#descriptionProject {
+		text-align : justify;
+		margin-top:1em;
+		transition : margin-bottom 0.5s;
+	}
+	#opacityProject {
+		position : absolute;
+		width : 100%;
+    	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+		height : 2em;
+		bottom : 0;
+	}
+	#contentProject {
+		position : relative;
+		width : 90%;
+		left : 5%;
+		margin-top : 1.5em;
+	}
+	#topContentProject {
+		width : 100%;
+		border-collapse : collapse;
+	}
+	#lineProject {
+		width : 100%;
+		border-bottom : 1px solid #252F3A;
+	}
+	.lineProject {
+		height : 1em;
+	}
+	#moreInfoProject div {
+		width : 8em;
+		margin-left : 1em;
+		font-family : raleway;
+		color : #252F3A;
+		border : 1px solid #252F3A;
+		border-radius : 1em;
+		padding : 0.3em 0;
+		text-align : center;
+	}
+	#membersProject {
+		position : relative;
+		margin-top : 1.5em;
+	}
+	#membersProject > table {
+		width : 100%;
+		background-color : #F8F8F8;
+		margin-bottom : 1em;
+		padding : 1em;
+	}
+	.imgMember > div {
+		width : 4em;
+		height : 4em;
+		border-radius : 100%;
+		background-color:red;
+		margin-right : 1em;
+	}
+	.nameMember {
+		width : 100%;
+		color : #252F3A;
+		font-size : x-large;
+		font-family : raleway;
+		font-weight : 500;
+	}
+	.roleMember {
+		color : #252F3A;
+		font-weight : 100;
+	}
+	.isAdminMember {
+		background-image : url(/img/logoServices/admin.png);
+		background-position : center-left;
+		background-size : auto 100%;
+		background-repeat : no-repeat;
+		height : 1em;
+	}
+	.moreMember div {
+		width : 3em;
+		height : 3em;
+		background-image:  url(/img/logoServices/points.png);
+		background-size : auto 50%;
+		background-repeat : no-repeat;
+		background-position : center;
+	}
+	#servicesProject {
+		position : relative;
+		margin-top : 1em;
+	}
+	#servicesProject > table {
+		display : inline-block;
+		background-color : #F8F8F8;
+		margin-right : 1em;
+		padding : 0.5em;
+	}
+	.logoService {
+		height : 2em;
+		width : 2em;
+		background-position : center;
+		background-size : 90% 90%;
+		background-repeat : no-repeat;
+	}
+	.nameService {
+		padding-left : 0.5em;
+		color : #252F3A;
+	}
+	#wrapperNameTaskProject {
+		width : 100%;
+		height : 2.5em;
+		margin-top : 1em;
+		position : relative;
+	}
+	#wrapperNameTaskProject > table {
+		background-color : #252F3A;
+		color : white;
+		height : 100%;
+		padding : 0 1em;
+		position : relative;
+		transition : all 0.3s;
+		opacity : 0;
+	}
+	#nameTask {
+		padding-right : 1em;
+	}
+	#dateTask {
+		font-style : italic;
+		font-size : x-small;
+	}
+	#arrowTask {
+		position : absolute;
+		top : 100%;
+		transition : left 0.3s;
+		width: 0; 
+		height: 0; 
+		border-color : transparent transparent #252F3A transparent;
+		border-style : none solid solid solid;
+		transition : border-color 0.2s;
+		transform : rotate(180deg);
+		transition : left 0.3s;
+	}
+	#bottomProject {
+		width : 100%;
+		position : relative;
+	}
+	#barTaskProject {
+		width : 93%;
+		position : relative;
+		height: 2em;
+		border : 1px solid #F8F8F8;
+		margin-top : 1em;
+		margin-bottom : 2em;
+	}
+	#barTaskProject table {
+		width : 100%;
+		height : 100%;
+		text-align : center;
+		color : #252F3A;
+		border-collapse:collapse;
+
+	}
+	#barTaskProject td {
+	}
+	#tmpTask {
+		position : absolute;
+		top : 0;
+		left : 0;
+		height : 100%;
+		width : 0;
+		background-color: #6EB7BE;
+		transition : width 1s;
+		z-index : -1;
+	}
+	
+	#configureProject {
+		display : inline-block;
+		width : 5%;
+		height : 2em;
+		position : absolute;
+		right : 0;
+		top : 0;
+		background-image : url(/img/logoServices/settings.png);
+		background-size : 100%;
+		background-position : center;
+		background-repeat : no-repeat;
+	}
+	</style>
+</head>
+<body>
+
+	<div id="project">
+		<div id="headerProject">
+			<div id="titleProject"></div>
+			<div id="descriptionProject"></div>
+			<div id="opacityProject"></div>
+		</div>
+		<div id="contentProject">
+			<table id="topContentProject">
+				<tr>
+					<td class="lineProject" id="lineProject"></td><td id="moreInfoProject" rowspan=2><div>Plus d'info</div></td>
+				</tr>
+				<tr>
+					<td class="lineProject" ></td>
+				</tr>
+			</table>
+			<div id="membersProject"></div>
+			<div id="servicesProject"></div>
+			<div id="wrapperNameTaskProject">
+				<table>
+					<tr>
+						<td id='nameTask'></td><td id='dateTask'></td>
+					</tr>
+				</table>
+				<div id="arrowTask"></div>
+			</div>
+			<div id="bottomProject">
+				<div id="barTaskProject"><table><tr></tr></table></div>
+				<div id="configureProject"></div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		
+		function Member(name, job, role, isAdmin) {
+			this.name = name;
+			this.job = job;
+			this.role = role;
+			this.isAdmin = isAdmin;
+		}
+		
+		function Service(id, name, url) {
+			this.id = id;
+			this.name = name;
+			this.url = url;
+		}
+		
+		function Task(title, date) {
+			this.title = title;
+			this.date = date;
+		}
+		
+		function Project(title, description, members, services, tasks, currentTask) {
+			this.title = title;
+			this.description = description;
+			this.members = members;
+			this.services = services;
+			this.tasks = tasks;
+			this.currentTask = currentTask;
+		}
+				
+		var M = new Array();
+		M.push(new Member("Roxane Lemcharki", "Consultante", "Responsable du projet", true));
+		M.push(new Member("Ronaldo Perez", "Contrôleur qualité", "Consultant projet (représentant du personnel)", false));
+		
+		var S = new Array();
+		S.push(new Service(1, "Slack", "http://slack.com"));
+		S.push(new Service(3, "Github", "http://github.com"));
+		
+		var T = new Array();
+		T.push(new Task("Formation des équipes", "04/15/2018"));
+		T.push(new Task("Écriture du cahier des charges", "05/01/2018"));
+		T.push(new Task("Design de l'interface", "05/12/2018"));
+		T.push(new Task("Développement de l'interface", "05/31/2018"));
+		T.push(new Task("Ajout du back-end", "06/12/2018"));
+		T.push(new Task("Intégration à la plateforme", "06/18/2018"));
+		T.push(new Task("Présentation du système", "07/02/2018"));
+		
+		var P = new Project("Développement d'un whiteboard", "L'objectif de ce projet est de concevoir un tableau blanc (whiteboard) accessible depuis la page d'accueil de l'outil RH. Sur ce whiteboard, les employés pourront poster des messages éphémères qui pourront être \"likés\" et commentés à l'image d'un réseau social d'entreprise. Un système de notifications et de mise à jour en temps réel devra être mis en place afin de rendre le système plus fluïde, plus efficace et donc plus agréable à utiliser pour les employés de l'entreprise.", M, S, T, 5);
+		
+		function getHtmlMember(id) {
+			return "<table id='member"+id+"'><tr><td class='imgMember' rowspan=3><div></div></td><td class='nameMember'></td><td class='moreMember' rowspan=3><div></div></td></tr><tr><td class='roleMember'></td></tr><tr><td class='isAdminMember'></td></tr></table>";
+		}
+		
+		function loadMembers() {
+			P.members.forEach(function(e, id) {
+				$("#membersProject").append(getHtmlMember(id));
+				var ele = $("#member"+id);
+				ele.find(".nameMember").html(e.name);
+				ele.find(".roleMember").html(e.role);
+				if(!e.isAdmin) ele.find(".isAdminMember").css("opacity",0);
+			});
+		
+		}
+		
+		
+				
+		function getHtmlServices(id) {
+			return "<table id='service"+id+"'><tr><td class='logoService'></td><td class='nameService'></td></tr></table>";
+		}
+		
+		function loadServices() {
+			P.services.forEach(function(e) {
+				$("#servicesProject").append(getHtmlServices(e.id));
+				var ele = $("#service"+e.id);
+				ele.find(".nameService").html(e.name);
+				ele.find(".logoService").css("background-image","url(/img/logoServices/"+e.id+".png)");
+			});
+		}
+		
+		
+		function loadNameTask(isEnd, id = P.currentTask) {
+			var t = P.tasks[id];
+			var title = (isEnd) ? "Fin du projet" : t.title;
+			var date = (isEnd) ? "" : t.date;
+			$('#nameTask').fadeOut(100, function() { $(this).html(title).fadeIn(100); });
+			$('#dateTask').fadeOut(100, function() { $(this).html(date).fadeIn(100); });
+		}
+		
+		function loadIconTasks() {
+			var i;
+			for (i=0; i<P.currentTask; i++) {
+				$('#barTaskProject tr').append("<td id='pointTask"+i+"'><span>■</span></td>");
+				$('#pointTask'+i).css("background-color", "#6EB7BE");
+			}
+			for(;i<P.tasks.length; i++)
+				$('#barTaskProject tr').append("<td id='pointTask"+i+"'><span>□</span></td>");
+			
+			$('#barTaskProject td').hover(function() {
+				var id = parseInt($(this).attr('id').split("Task")[1]);
+				loadNameTask(false, id);
+				positionNameTask(id);
+			}, function() {
+				if (P.currentTask != P.tasks.length) loadNameTask(false);	
+				else loadNameTask(true);
+				positionNameTask();			
+			});
+			$('#barTaskProject td').click(function() {
+				if ($(this).attr('id').split('Task')[1] != P.currentTask) return;
+				P.currentTask++;
+				if (P.currentTask != P.tasks.length) loadNameTask(false);
+				else loadNameTask(true);
+				positionNameTask();
+				changeBColor($(this));
+			});
+		}
+		function changeBColor(ele) {
+			ele.children('span').fadeOut(300, function () { $(this).html('■').fadeIn(300);});
+			ele.css('position','relative')
+			.append('<div id="tmpTask"></div>');
+			setTimeout(()=>{
+				$("#tmpTask").css('width','100%');
+			},10);
+			setTimeout(()=>{
+				ele.css('background-color','#6EB7BE');
+				$('#tmpTask').remove();
+				ele.css('position','default');
+			}, 1010);
+		}
+		
+		function positionNameTask(id=P.currentTask) {
+			var w = $("#wrapperNameTaskProject > table").width();
+			var l = (id/P.tasks.length)*$("#barTaskProject").width() - w/2;
+			if (l<0) l=0;
+			else if (l>$("#barTaskProject").width()-w) l=$("#barTaskProject").width()-w;
+			$("#wrapperNameTaskProject > table").css("left", l);
+			$("#arrowTask").css("left",(id/P.tasks.length)*$("#barTaskProject").width()+0.5*$("#barTaskProject td").width());
+		}
+		
+		function loadTasks() {
+			loadNameTask();
+			loadIconTasks();
+			setTimeout(()=>{
+				positionNameTask();
+				$("#wrapperNameTaskProject > table").css("opacity",1);
+			},200);
+		}
+		
+		
+		
+		function loadContent() {
+			$("#titleProject").html(P.title);
+			$("#descriptionProject").html(P.description);
+			loadMembers();
+			loadServices();
+			loadTasks();
+		}
+		
+		moreInfoBool = false;
+		function moreInfo() {
+			$("#moreInfoProject > div").click(function () {
+				if (!moreInfoBool) {
+					$("#headerProject").css("max-height","20em").css("overflow","scroll");
+					$("#descriptionProject").css("margin-bottom","2em");
+					$(this).html("Moins d'info");
+				}
+				else {
+					$("#headerProject").css("max-height","13em").css("overflow","hidden");
+					$("#descriptionProject").css("margin-bottom","0");
+					$(this).html("Plus d'info");				
+				}
+				moreInfoBool = !moreInfoBool;
+			});
+		}
+		
+		$(function() {
+			loadContent();
+			moreInfo();
+		});
+	
+	</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

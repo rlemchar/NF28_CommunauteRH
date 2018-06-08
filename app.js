@@ -108,7 +108,12 @@ app.get('/newProjectW', function(req, res) {
 	res.render('newProjectW.ejs');
 });
 
+app.get('/viewProject', function(req, res) {
+	res.render('index.ejs', {p: 2});
+});
 
-
+app.get('/viewProjectW', function(req, res) {
+	res.render('display.ejs');
+});
 
 app.listen(8080);
