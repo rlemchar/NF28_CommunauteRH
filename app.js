@@ -80,6 +80,10 @@ app.get('/recherche',function(req,res){
     res.render("recherche.ejs", {keywords: req.session.keywords});
 });
 
+app.get('/recherche/bdd',function(req,res){
+    res.sendFile(__dirname + '/public/scripts/test.xml');
+});
+
 app.post('/recherche/addKeyWord', urlencodedParser, function(req, res) {
     if (req.body.newKW != '') {
         req.session.keywords.push(req.body.newKW);

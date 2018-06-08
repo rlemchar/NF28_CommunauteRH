@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+  <personne>
+    <ID>1</ID>
+    <nom>GARCIN</nom>
+    <prenom>Emma</prenom>
+    <metier>Graphiste</metier>
+    <entreprise>Sopra Steria</entreprise>
+    <ville>Paris</ville>
+    <competences>Java</competences>
+    <competences>test</competences>
+    <langues>Anglais</langues>
+  </personne>
+
+  <personne>
+    <ID>2</ID>
+    <nom>NIORTOU</nom>
+    <prenom>Cyril</prenom>
+    <metier>Contrôleur qualité</metier>
+    <entreprise>Sopra Steria</entreprise>
+    <ville>Lille</ville>
+    <competences>UX Design</competences>
+    <langues>Allemand</langues>
+  </personne>
+
+</CATALOG>

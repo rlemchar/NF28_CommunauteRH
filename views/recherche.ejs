@@ -49,26 +49,26 @@
                         <input type="text" name="newKW" id="newKW" placeholder="Ajouter un mot-clé"/>
                         <input id="addKW" type="submit" value="+"/>
                     </form>
+                                 
 
                 </div> 
 
-                <div id="KeyWordsList" class="col-md-4">
+                <div id="divListe" class="col-md-4">
                     <h5>Mots-clé :</h5>
-                    <ul id="divListe" class="list-unstyled">
+                    <ul id="KWlist" class="list-unstyled">
                     <% keywords.forEach(function(kw, index) { %>
-                        <li id="liste"><a id="supprKW" href="/recherche/supprKeyWord<%= index %>"><img src='https://cdn1.iconfinder.com/data/icons/everyday-2/64/x_cross_delete_stop-512.png'  style="width:16px; height:16px;" /></a> <%= kw %></li>
+                        <li id="liste"><a id="supprKW" href="/recherche/supprKeyWord<%= index %>"><img src='https://cdn1.iconfinder.com/data/icons/everyday-2/64/x_cross_delete_stop-512.png'  style="width:16px; height:16px;" /></a> <span><%= kw %></span></li>
                     <% }); %>
                     </ul>
+                    
                 </div>
 
-                <button id="boutonRecherche" type="submit" form_id="rechercher">Lancer la recherche</button>
+                <button id="boutonRecherche" onclick="results();">Lancer la recherche</button>
 
             </div>
             
             <div id="resultatsRecherche" class="col-md-12">
-                <form id="loadResults" method="get" action="/recherche/results">
-                      <% include resultatRecherche %>
-                </form>
+                
             </div>
             
         </div>
@@ -87,6 +87,6 @@
         <footer>
             <p class="text-center text-muted">© Copyright 2018 Projet NF28 - UTC</p>
         </footer>
-        
+        <script src="/scripts/scriptRecherche.js"></script>
     </body>
 </html>

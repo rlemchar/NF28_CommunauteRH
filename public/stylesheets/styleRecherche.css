@@ -17,7 +17,7 @@
     position: inherit;
 }
 
-#KeyWordsList
+#divListe
 {
     float:left;
     position: relative;
@@ -38,7 +38,7 @@
     list-style-type:none;
 }
 
-#divListe
+#KWlist
 {
     position: inherit;
 }
@@ -55,6 +55,14 @@
     background-color: whitesmoke;
     overflow: scroll;
     height: 400px;
+}
+
+#divPersonne
+{
+    top: 15px;
+    border-style: solid;
+    border-color: cornflowerblue;
+    background-color: white;
 }
 
 #moitieGauche
