@@ -306,7 +306,13 @@ aside {
   width:530px;
 }
 
-
+#recherche
+{
+    background-color:lightblue;
+    color:black;
+    border-style:solid;
+    border-color:cornflowerblue;
+}
 
 
 

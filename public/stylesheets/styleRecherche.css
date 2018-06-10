@@ -1,6 +1,7 @@
 #moitieDroite
 {
     float:right;
+    font-family: "Helvetica";
 }
 
 #partieRecherche
@@ -62,13 +63,59 @@
     top: 15px;
     border-style: solid;
     border-color: cornflowerblue;
+    border-width: thick;
     background-color: white;
+}
+
+#Profil 
+{
+    top: 10px;
+}
+
+#Compétences
+{
+    top: 10px;
+}
+
+#Langues
+{
+    top: 10px;
+}
+
+#buttons
+{
+    bottom : 2px;
+    left : 25px;
+}
+
+#sendMsg
+{
+    font-size: smaller;
+    background-color:lightblue;
+    color:black;
+    border-style:solid;
+    border-color:cornflowerblue;
+    position: relative;
+    float: right;
+}
+
+#addToProject
+{
+    font-size: smaller;
+    background-color:lightblue;
+    color:black;
+    border-style:solid;
+    border-color:cornflowerblue;
+    position: relative;
+    float: right;
+    right : 5px;
 }
 
 #moitieGauche
 {
     background-color: white;
     float:left;
+    height : 630px;
 }
 
 #selectOrganigramme
