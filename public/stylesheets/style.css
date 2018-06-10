@@ -256,5 +256,12 @@ aside {
   transform : rotate(-3deg);
 }
 
+#recherche
+{
+    background-color:lightblue;
+    color:black;
+    border-style:solid;
+    border-color:cornflowerblue;
+}
 
 

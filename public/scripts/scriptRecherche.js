@@ -134,10 +134,12 @@ function results() {
                     for (z = 0; z < lan.length; z++) {
                         result += "<li>" + lan[z].childNodes[0].nodeValue + " " + level[z].childNodes[0].nodeValue + "</li>";
                     }
-                    result += "</ul>";
+                    result += "</ul>";           
+                    result += "</div>";
                     
-                    //boutons à ajouter pour ajouter à un projet / envoyer un msg
-                    
+                    result += "<div id=\"buttons\" class=\"col-md-12\">"
+                    result += "<button id=\"sendMsg\" onclick=\"sendMsg();\">Envoyer un message</button>";
+                    result += "<a href=\"//localhost:8080/newProject\"><button id=\"addToProject\" onclick=\"\">Ajouter à un projet</button></a>";
                     result += "</div>";
 
                     result += "</div>";
@@ -157,4 +159,14 @@ function results() {
     var path = "//localhost:8080/recherche/bdd";
     xmlhttp.open("GET", path, true);
     xmlhttp.send(null);
+}
+
+function sendMsg()
+{
+    alert("test");
+}
+
+function orga()
+{
+    alert("teste");
 }
