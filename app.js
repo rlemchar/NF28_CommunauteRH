@@ -64,7 +64,7 @@ app.use(express.static(path.join(__dirname, 'public')));	// Faire en sorte que l
 app.use(session({secret: 'todotopsecret'}));
 
 app.get('/', function(req, res) {
-    res.render("index.ejs");
+    res.render("index.ejs", {p: 0});
 });
 
 //Partie recherche
@@ -78,6 +78,10 @@ app.use(function(req, res, next){
 
 app.get('/recherche',function(req,res){
     res.render("recherche.ejs", {keywords: req.session.keywords});
+});
+
+app.get('/recherche/bdd',function(req,res){
+    res.sendFile(__dirname + '/public/scripts/test.xml');
 });
 
 app.post('/recherche/addKeyWord', urlencodedParser, function(req, res) {
@@ -100,7 +104,20 @@ app.get('/widgetProject',function(req,res){
     res.render("widgetProject.ejs", {width: 600});
 });
 
+app.get('/newProject', function(req, res) {
+	res.render('index.ejs', {p: 1});
+});
 
+app.get('/newProjectW', function(req, res) {
+	res.render('newProjectW.ejs');
+});
 
+app.get('/viewProject', function(req, res) {
+	res.render('index.ejs', {p: 2});
+});
+
+app.get('/viewProjectW', function(req, res) {
+	res.render('display.ejs');
+});
 
 app.listen(8080);

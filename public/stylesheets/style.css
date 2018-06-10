@@ -1,5 +1,6 @@
 body {
   padding: 50px;
+  overflow:hidden;
 }
 
 a {
@@ -48,6 +49,7 @@ a {
   position: relative;
   text-align: center;
   color: white;
+  overflow:hidden;
 }
 
 #main-container{

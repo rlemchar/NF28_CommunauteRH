@@ -1,5 +1,4 @@
 #widgetProject {
-	position : fixed;
 	background-color : #F3F3F3;
 }
 #nameWidgetProject {
@@ -25,7 +24,8 @@
 	border-style : solid;
 	border-color : #E1E1E1;
 	transition : border-color 0.3s;
-	width : 22%;
+	width : 35%;
+	height : 100%;
 	display : inline-block;
 	position : relative;
 	background-image : url('/img/plusBackground.png');
@@ -41,7 +41,7 @@
 	position : relative;
 	margin-right : 2%;
 	height : 100%;
-	width : 36%;
+	width : 45%;
 	background-color : #C0C0C0;
 	color : #40484F;
 	font-family : arial;
@@ -63,7 +63,7 @@
 }
 .contentProject:hover .arrowProject {
 	border-color : #79838E;
-	background-color : transparent;
+	border-color : transparent transparent #79838E transparent;
 }
 
 .contentProject:hover .taskProject {

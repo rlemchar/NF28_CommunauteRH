@@ -1,0 +1,715 @@
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<style>
+		#newProject {
+			font-family : arial;
+			width : 100%;
+			position : absolute;
+			color : #252F3A;
+		}
+		#coverNewProject {
+			position : absolute;
+			width : 100%;
+			height : 100%;
+			z-index : 19;
+			background-color : rgba(0,0,0,0.1);
+			display : none;
+		}
+		#headerNewProject {
+			position : relative;
+			width : 100%;
+			margin : 0;
+			padding : 0;
+			border-bottom : 1px solid #EFEFEF;
+		}
+		#titleHeaderNewProject {
+			font-weight : bold;
+			color : #252F3A;
+			font-size : large;
+			position : relative;
+			left : 5%;
+			width : 90%;
+			margin : 1% 0;
+		}
+		#contentHeaderNewProject {
+			font-weight : 400;
+			color : #252F3A;
+			font-size : normal;
+			position : relative;
+			left : 5%;
+			width : 90%;
+			text-align : justify;
+		}
+		#buttonHeaderNewProject {
+			position : relative;
+			margin : 3% 0;
+			width : 90%;
+			left : 5%;
+			text-align : right;
+		}
+		#buttonHeaderNewProject > div {
+			position : relative;
+			display : inline-block;
+			width : 15%;
+			border : 1px solid #252F3A;
+			text-align : center;
+			padding : 1% 3%;
+			border-radius : 20px;
+			margin : 0;
+			font-size : small;
+		}
+		#cancelButtonHeaderNewProject {
+			color : #252F3A;
+			right : 3%;
+		}
+		#validateButtonHeaderNewProject {
+			color : white;
+			background-color : #252F3A;
+		}
+		#contentNewProject {
+			position : relative;
+			width : 90%;
+			left : 5%;
+			margin-top : 3%;
+		}
+		.titleContentNewProject {
+			font-weight : lighter;
+		}
+		#nameContentNewProject {
+			position : relative;
+			width : 100%;
+			font-size : 95%;
+		}
+		#nameContentNewProject > input {
+			width : 100%;
+			height : 2.5em;
+			margin-top : 0.6%;
+			background-color : #F8F8F8;
+			border : none;
+			padding : 0 3%;
+			font-family : arial;
+			font-size : 110%;
+			
+		}
+		#descriptionContentNewProject {
+			position : relative;
+			width : 100%;
+			margin-top : 3%;
+			font-size : 95%;
+		}
+		#descriptionContentNewProject > textarea {
+			width : 100%;
+			height : 4em;
+			margin-top : 0.6%;
+			background-color : #F8F8F8;
+			border : none;
+			padding : 3%;
+			font-family : arial;
+			color : #252F3A;
+			font-size : 110%;
+			resize : vertical;
+		}	
+		#MembersContentNewProject {
+			position : relative;
+			width : 100%;
+			margin-top : 3%;
+			font-size : 95%;		
+		}	
+		#MembersContentNewProject > table {
+			width : 100%;
+		}
+		#MembersContentNewProject th {
+			font-weight : lighter;
+			font-size : 95%;
+			text-align : left;
+			color : #252F3A;
+		}
+		#MembersContentNewProject td:not([class="hoverBack"]) {
+			background-color : #F8F8F8;
+			color : #252F3A;
+			font-family : arial;
+			height : 2em;
+		}
+		.nameMemberNewProject {
+			width : 35%;
+		}
+		.inputRoleNewProject {
+			width : 35%;
+		}
+		.isAdminNewProject, .memberOptionNewProject, addMemberNewProject {
+			width : 10%;
+		}
+		.nameMemberNewProject > div {
+			width : 100%;
+			padding : 5%;
+			position : relative;
+		}
+		.imgMemberNewProject {
+			width : 15%;
+			background-color : red;
+			border-radius : 100%;
+			position : relative;
+		}
+		.nameTextMemberNewProject, .jobMemberNewProject {
+			position : absolute;
+			left : 25%;
+			width : 65%;
+		  	text-overflow: ellipsis;
+		   	overflow : hidden;
+   			display: -webkit-box;
+   			-webkit-line-clamp: 1;
+   			-webkit-box-orient: vertical;
+		}
+		.nameTextMemberNewProject {
+			top : calc(50% - 1em);
+		}
+		.jobMemberNewProject {
+			top :53%;
+			font-size : small;
+		}
+		.inputRoleNewProject > input, #nameInputTaskNewProject > input {
+			width : 100%;
+			display : block;
+			height : 3em;
+			padding : 0 5%;
+			font-family : arial;
+			font-size : 1em;
+			background-color : rgba(0,0,0,0);
+			border : none;
+		}
+		.isAdminNewProject {
+			text-align : center;
+		}
+		.isAdminNewProject > div {
+			height : 50%;
+			display : inline-block;
+			border : 3px solid #252F3A;
+			position : relative;
+		}
+		.isAdminNewProject > div > div {
+			height : 80%;
+			width : 80%;
+			background-color : #252F3A;
+			left : 10%;
+			top : 10%;
+			position : absolute;
+		}
+		#addMemberNewProject {
+			text-align : center;
+			font-size : x-large;
+			font-weight : bold;
+			color : #252F3A;
+			font-family : arial;
+			height : 2em;
+		}
+		#ServicesContentNewProject, #TasksContentNewProject {
+			position : relative;
+			width : 100%;
+			margin-top : 3%;
+			font-size : 95%;		
+		}	
+		#ServicesContentNewProject > table, #TasksContentNewProject > table {
+			width : 100%;
+		}
+		#ServicesContentNewProject td {
+			background-color : #F8F8F8;
+			font-family : arial;
+			height : 3em;						
+		}
+		#TasksContentNewProject td:not([class='hoverBack']) {
+			background-color : #F8F8F8;
+			font-family : arial;
+			height : 2em;	
+		}
+		#TasksContentNewProject {
+			margin-bottom: 10%;
+		}
+		#servicesArrayNewProject {
+			width : 70%;
+			text-align : center;
+			font-style : italic;
+			color : rgba(39,47,57,0.5);
+			overflow-x : scroll;
+		}
+		#addServiceNewProject {
+			color : #252F3A;
+			text-align : center;
+		}
+		#addTaskNewProject {
+			color : #252F3A;
+			font-size : x-large;
+			font-weight : bold;
+			text-align : center;
+			transition : background-color 0.2s;
+			font-family : arial;
+			height : 2em;
+
+		}
+		#addTaskNewProject:hover {
+			background-color : #F0F0F0;
+		}
+		
+		
+		#formTaskNewProject {
+			width : 90%;
+			text-align : left;
+			font-style : italic;
+			color : rgba(39,47,57,0.5);
+			overflow-x : scroll;		
+			position : relative;
+		}
+		
+		#formTaskNewProject > input:not([id="datepicker"]) {
+			height : 90%;
+			width : 73%;
+			padding : 0 5%;
+			margin-left : 3px;
+			font-family : arial;
+			background-color : rgba(0,0,0,0);
+			font-size : 1em;
+			border : none;
+		}
+		
+		.taskTr > td:not([class='nameTask']) {
+			text-align : center;
+		}
+		.idTask {
+			width : 10%;
+		}
+		.nameTask {
+			width : 55%;
+			padding-left : 2%;
+		}
+		.taskTr {
+			color : #252F3A;
+		}
+		.hoverBack {
+			transition : background-color 0.2s;
+			background-color : #F8F8F8;
+		}
+		.hoverBack:hover {
+			background-color : #F0F0F0;
+		}
+		input {
+			font-weight : 100;
+			font-style : italic;
+			color : rgba(39,47,57,0.5);
+		}
+		
+		.custom-select {
+			width : 100%;
+			padding : 0.95em 0;
+			transition : background-color 0.1s;
+			cursor : default;
+			position : relative;
+		}
+		.custom-select:hover {
+			background-color : #F0F0F0;
+		}
+		.custom-select:hover > div {
+			max-height : 12em;
+		}
+		.custom-select-choices {
+			position : absolute;
+			transition : max-height 0.2s;
+			max-height : 0;
+			bottom : 3.1em;
+			left : 0;
+			width : 100%;
+			overflow-y : scroll;
+			color : white;
+			background-color : #252F3A;
+		}
+		.custom-select-choices > div {
+			padding : 0.95em 1em;
+   			display: -webkit-box;
+   			-webkit-line-clamp: 1;
+   			-webkit-box-orient: vertical;
+		  	text-overflow: ellipsis;
+		  	overflow:hidden;
+		  	width : calc(100% - 2em);
+		}
+		.custom-select-choice:hover {
+			background-color : #202A36;
+		}
+		.specificService {
+			display : inline-block;
+			position : relative;
+			margin-left : 1em;
+		}
+		.logoService {
+			position : relative;
+			display : inline-block;
+			height : 2em;
+			width : 2em;
+			background-size : contain;
+			background-repeat : no-repeat;
+			background-position : center;
+		}
+		.nameService {
+   			display: -webkit-box;
+   			-webkit-line-clamp: 1;
+   			-webkit-box-orient: vertical;
+   			left : 3em;
+			top : 0.5em;
+			position : absolute;
+		  	text-overflow: ellipsis;
+		  	width : 6em;
+		  	overflow : hidden;
+		}
+		.specificService input {
+			display : inline-block;
+			position : absolute;
+			font-family : arial;
+			font-size : 1em;
+			background-color : transparent;
+			border : none;
+			left : 10em;
+			top : -0.5em;
+			height : 3em;
+			padding : 0 1em;
+		}
+		.serviceOk {
+			background-image : url(/img/logoServices/ok.png);
+			position : absolute;
+			display : inline-block;
+			border-radius : 100%;
+			height : 1.5em;
+			width : 1.5em;
+			top : 0.3em;
+			background-position : center;
+			background-size : 100% 100%;
+		}
+		#datepicker {
+			display : inline-block;
+			position : absolute;
+			left : 77%;
+			width : 20%;
+			height : 90%;
+			font-size : 1em;
+			border : none;
+			background-color : transparent;
+			color : transparent;
+			background-image : url(/img/logoServices/cal.png);
+			background-position : center;
+			background-size : 20%;
+			background-repeat : no-repeat;
+			text-align : center;
+			transition : opacity 0.1s;
+		}
+
+
+		
+	</style>
+</head>
+<body>
+
+	<div id="newProject">
+		<div id="coverNewProject"></div>
+		<div id="headerNewProject">
+			<div id="titleHeaderNewProject">CRÉER UN PROJET</div>
+			<div id="contentHeaderNewProject">Créez un nouveau projet en renseignant les différentes informations, en renseignant les personnes concernées, en ajoutant les services utilisés et en indiquant le calendrier des différentes étapes.</div>
+			<div id="buttonHeaderNewProject">
+				<div id="cancelButtonHeaderNewProject">Annuler</div>
+				<div id="validateButtonHeaderNewProject">Valider</div>
+			</div>
+		</div>
+		<div id="contentNewProject">
+			<div id="nameContentNewProject">
+				<div class="titleContentNewProject" id="labelTitleContentNewProject">Titre du projet</div>
+				<input value="Indiquez le titre du projet" type="text" id="inputTitleContentNewProject" />
+			</div>
+			<div id="descriptionContentNewProject">
+				<div class="titleContentNewProject" id="labelDescriptionContentNewProject">Description du projet</div>
+				<textarea id="inputDescriptionContentNewProject"></textarea>
+			</div>	
+			<div id="MembersContentNewProject">
+				<table>
+					<tr>
+						<th>Participants</th><th>Rôle</th><th>Modérateur</th><th></th><th></th>
+					</tr>
+					<tr>
+						<td class="nameMemberNewProject"><div><div class="imgMemberNewProject"></div><div class="nameTextMemberNewProject">Franck Assedou</div><div class="jobMemberNewProject">Développeur full-stack</div></div></td><td class="inputRoleNewProject"><input type="text" value="Indiquez le rôle dans le projet"/></td><td class="isAdminNewProject"><div><div></div></div></td><td class="memberOptionNewProject"><div></div></td><td class="hoverBack" id="addMemberNewProject">+</td>
+					</tr>
+				</table>
+			</div>		
+			<div id="ServicesContentNewProject">
+				<div class="titleContentNewProject" id="labelServicesContentNewProject">Services</div>
+				<table>
+					<tr>
+						<td id="servicesArrayNewProject">Aucun service ajouté</td>
+						<td id="addServiceNewProject">
+						
+							<div class="custom-select">
+								Ajouter un service
+								<div class="custom-select-choices">
+									<div class="custom-select-choice" id='serviceOther'>Autre</div>
+								</div>
+							</div>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="TasksContentNewProject">
+				<div class="titleTasksNewProject" id="labelTasksContentNewProject">Calendrier prévisionnel</div>
+				<table>
+					<tr id='inputTaskTr'>
+						<td colspan=3 id="formTaskNewProject">
+							<input id='inputTask' type="text" value="Nom de la tâche" />
+							<input id='datepicker' type = 'text' />
+						</td>
+						<td class="hoverBack" id="addTaskNewProject">+</td>
+					</tr>
+				</table>
+			</div>
+			
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+	
+		var S = new Map();
+		S.set(2, 'Dropbox');
+		S.set(1, 'Slack');
+		S.set(3, 'Github');
+		S.set(4, 'Google Docs');
+		S.set(5, 'Gitlab');
+		S.set(6, 'Dropbox 2');
+		S.set(7, 'Slack 2');
+		S.set(8, 'Github 2');
+		S.set(9, 'Google Docs 2');
+		S.set(10, 'Gitlab 2');
+		S.set(11, 'Dropbox 3');
+		S.set(12, 'Slack 3');
+		
+		var T = new Array();
+		
+		function O_Task(name, date) {
+			this.name = name;
+			this.date = date;
+		}
+		
+		function inputDefaultValue(e = 0) {
+			if (!e) e=$('input');
+			e.focus(function() {
+				if ($(this).prop("defaultValue") == $(this).val())
+					$(this).val("").css("color", "#252F3A").css("font-style", "normal");
+				else if($(this).is('.specificService input'))
+					$(this).css("color", "#252F3A");
+			});
+			e.focusout(function() {
+				if ($(this).val() == "")
+					$(this).val($(this).prop("defaultValue")).css("color", "rgba(39,47,57,0.5)").css("font-style", "italic");
+				else if($(this).is('.specificService input'))
+					$(this).css("color", "rgba(39,47,57,0.5)");
+			});
+		}
+	
+		function checkBoxIsAdmin(i = 0) {
+			if (!i) {
+				$('.isAdminNewProject > div').click(function() {
+					if($(this).children().css("display") != "none") $(this).children().fadeOut(100);
+					else $(this).children().fadeIn(100);
+				});
+			}
+			else {
+				$('#trMember' + i + ' .isAdminNewProject > div').click(function() {
+					if($(this).children().css("display") != "none") $(this).children().fadeOut(100);
+					else $(this).children().fadeIn(100);
+				});
+			}
+		}
+
+		function size() {
+			$(".imgMemberNewProject").css("height", $(".imgMemberNewProject").width());
+			$(".isAdminNewProject > div").css("width", $(".isAdminNewProject > div").height());		
+		}
+
+		
+		function members() {
+			$("#addMemberNewProject").click(function() {
+				$(this).attr("rowspan", $(this).prop("rowSpan")+1);
+				$(this).parent().parent().append("<tr id='trMember2' style='display:none'><td class='nameMemberNewProject'><div><div class='imgMemberNewProject'></div><div class='nameTextMemberNewProject'>Roxane Lemcharki</div><div class='jobMemberNewProject'>Consultante</div></div></td><td class='inputRoleNewProject'><input type='text' value='Indiquez le rôle dans le projet'/></td><td class='isAdminNewProject'><div><div></div></div></td><td class='memberOptionNewProject'><div></div></td></tr>");
+				inputDefaultValue($('#trMember2').find('input'));
+				$('#trMember2').find('.isAdminNewProject > div > div').hide();
+				$('#trMember2').show(300);
+				size();
+				checkBoxIsAdmin(2);
+
+			});
+		}
+		
+		function services() {
+			S.forEach(function(ele, key) {
+				$('.custom-select-choices').append("<div class='custom-select-choice' id='service"+key+"'>"+ele+"</div>");
+			});	
+			
+			$('.custom-select-choice').click(function() {
+				var e = $('#servicesArrayNewProject');
+				var id = $(this).attr('id').split('service')[1];
+				if (id == 'Other') return;
+				id = parseInt(id);
+				$(this).hide(200);
+				if (e.html() == "Aucun service ajouté")	e.html('').css('text-align','left').css('font-style','normal').css('color','#252F3A');
+				e.append("<div style='display:none' class='specificService' id='specificService"+ id +"'><div class='logoService'></div></div>");
+				var newEle = $("#specificService"+ id);
+				newEle.children('.logoService').css('background-image', 'url(/img/logoServices/'+ id +'.png)');
+				setTimeout(() => { newEle.show(200); }, 100);
+				newEle.append("<div style='display:none' class='nameService'>"+S.get(id)+"</div>")
+				.append("<input value=\"Indiquez l'URL du projet sur "+ S.get(id) +"\" style='display:none' type='text' />")
+				.append("<div style='display:none' class='serviceOk'></div>");
+				inputDefaultValue(newEle.children('input'));
+				newEle.children('.serviceOk').css('left', 'calc('+$('#servicesArrayNewProject').width()+'px - 5em)')
+				.click(function() {
+					unspecificService(newEle, id);
+				});
+				newEle.children('input').css('width', 'calc('+$('#servicesArrayNewProject').width()+'px - 12em)')		
+				.focus(() => {newEle.children('.serviceOk').fadeOut(200);})
+				.focusout(() => {newEle.children('.serviceOk').fadeIn(200);})
+				newEle.click(function() { specificService($(this), id); });
+			});
+		}
+		
+		function unspecificService(e, id=0) {
+			if (!id) id = parseInt(e.attr('id').split('Service')[1]);
+			e.children('div:not([class="logoService"]), input').hide(200);
+			e.children('.logoService').unbind();
+			setTimeout(() => { e.click(function() { specificService(e, id); }); },10);
+			$('.specificService').each(function() {
+				if (!$(this).is(e)) $(this).show(100);
+			});
+		}
+		
+		function specificService(e, id=0) {
+			e.unbind();
+			if (!id) id = parseInt(e.attr('id').split('Service')[1]);
+			setTimeout(() => { e.children().show(100); }, 100);
+			$('.specificService').each(function() {
+				if (!$(this).is(e)) $(this).hide(100);
+			});
+			e.children('.logoService').mouseover(function() {
+				$(this).css('background-image', 'url(/img/logoServices/bin.png)');
+			});
+			e.children('.logoService').mouseout(function() {
+				$(this).css('background-image', 'url(/img/logoServices/'+id+'.png)');
+			});
+		}
+			
+		function lowerDate(d1, d2) {
+			d1 = d1.split('/');
+			d2 = d2.split('/');
+			if (d1[2] < d2[2]) return true;
+			if (d1[2] > d2[2]) return false;
+			if (d1[0] < d2[0]) return true;
+			if (d1[0] > d2[0]) return false;
+			if (d1[1] < d2[1]) return true;
+			return false;
+		}
+		
+		function addTask() {
+			var id = T.length;
+			var task = new O_Task($('#inputTask').val(), $('#datepicker').val());
+			if (!id) T.push(task);
+			else {
+				var ok = false;
+				for (var i = 0; i<T.length; i++) {
+					if (!ok) {
+						if (lowerDate(task.date, T[i].date)) {
+							id=i;
+							T.splice(i, 0, task);
+							ok = true;
+							break;
+						}
+					}
+				}
+				if (!ok) T.push(task);
+			}
+			updateTasks(id);
+			clearTaskInput();
+		}
+		
+		function updateTasks(i) {
+			i = parseInt(i);
+			$('.taskTr').each(function() {
+				var j = parseInt($(this).attr('id').split('Tr')[1]);
+				if (j >= i) {
+					j++;
+					$(this).attr('id', "taskTr"+j).children('.idTask').fadeOut(100, function() { $(this).html(j+1).fadeIn(100); });
+				}
+			});
+			var html = "<tr style='display:none' class='taskTr' id='taskTr"+i+"'><td class='idTask'>"+(i+1)+"</td><td class='nameTask'>"+T[i].name+"</td><td class='dateTask'>"+T[i].date+"</td><td id='deleteTask"+i+"' class='hoverBack'>x</td></tr>";
+			setTimeout(() => {
+				if (!i) $('#inputTaskTr').after(html);
+				else $('#taskTr'+(i-1)).after(html);
+				$('#taskTr'+i).show(200);
+				$("#deleteTask"+i).click(() => { deleteTask(i); });
+			}, 110);
+		}
+		
+		
+		function deleteTask(i) {
+			var name = $('#taskTr'+i).children('.nameTask').html();
+			i = parseInt(i);
+			$('#taskTr'+i).hide(200, function() { $(this).remove(); });
+			$('.taskTr').each(function() {
+				var j = parseInt($(this).attr('id').split('Tr')[1]);
+				if (j > i) {
+					j--;
+					$(this).attr('id', "taskTr"+j).children('.idTask').fadeOut(100, function() { $(this).html(j+1).fadeIn(100); });
+				}
+			});
+			for (j = 0; j < T.length; j++) {
+				if (T[j].name == name) {
+					delete T[j];
+					break;
+				}
+			}
+			for (; j<T.length-1; j++) {
+				T[j] = T[j+1];
+			}
+			T.length--;
+		}
+		
+		
+		function clearTaskInput() {
+			$('#inputTask').fadeOut(100, function() { $(this).val($(this).
+															prop("defaultValue"))
+															.css("color", "rgba(39,47,57,0.5)")
+															.css("font-style", "italic").fadeIn(100);
+			});
+			$('#datepicker').val("").css("opacity", 1).css("background-image","url(/img/logoServices/cal.png)");
+
+		}
+		
+		function tasks() {
+			$( "#datepicker" ).datepicker()
+			.focus(function() {
+				$(this).css("opacity",0);
+				setTimeout(() => { $(this).css("background-image","none"); }, 100);
+			})
+			.focusout(function() {
+				setTimeout(() => { $(this).css("opacity", 1); if($(this).val() == "") $(this).css("background-image","url(/img/logoServices/cal.png)"); }, 100);
+			});
+		
+		
+			$("#addTaskNewProject").click(() => { addTask(); });
+		}
+	
+		$(function() {
+			inputDefaultValue();
+			checkBoxIsAdmin();
+			size();
+			members();
+			services();
+			tasks();
+		});
+		
+		
+		
+		
+		
+	</script>
+</body>
