@@ -191,14 +191,32 @@ $(document).ready(function() {
 var tableOfComments = {};
 var tableNumberOfReactions = {};
 
-function addComment(id_pub,comment) {
+$(document).ready(function() {
+    /*
+    $(".draggable").click(function () {
+        $("#commentModal").modal();
+        loadModal();
+    });
+*/
+    $(".draggable").hover(function () {
+        console.log("hover !");
+    });
+});
+
+function addComment(id_pub) {
 
     var key = toString(id_pub);
-    if (tableNumberOfReactions.key == null){
-        tableNumberOfReactions.key = [comment];
+    var comment = document.getElementById("add-comments").value;
+    if (tableOfComments.key == null){
+        tableOfComments.key = [comment];
     }else{
-        tableNumberOfReactions.key.push(comment);
+        tableOfComments.key.push(comment);
     }
+    // Clearing comment area after publishing
+    $(document).ready(function() {
+        $("#add-comments").val('');
+    });
+    loadModal();
 }
 
 function addReaction(id_pub){
@@ -210,25 +228,42 @@ function addReaction(id_pub){
         tableNumberOfReactions.key++;
     }
     console.log(tableNumberOfReactions.key);
+    loadModal();
 }
 
-function displayReaction(id_pub){
+
+function loadModal(id_pub){
     var key = toString(id_pub);
-    return tableNumberOfReactions.key;
-}
+    var numberOfReactions = tableNumberOfReactions.key;
+    var comments = tableOfComments.key;
+    var text = " personne a aimé ça.";
+    $(document).ready(function() {
+        if (numberOfReactions != null){
+            if (numberOfReactions>1){
+                text = " personnes ont aimé ça."
+            }
 
-function openCommentModal(id_pub){
+                    $("#displayReactions").empty();
+                    $("#displayReactions").append("<div id= \"like-explanation\"class=\"top-right display-comments\"> " +
+                        numberOfReactions + text + "</div>");
 
-    //$("#displayReactions").append(displayReaction(id_pub));
+        }
+        if (comments != null) {
 
-}
+            $("#comment-row").empty();
+            for (var i = 0; i < comments.length; i++) {
 
-
-$(document).ready(function() {
-    $("#lebouton").click(function () {
-        $("#commentModal").modal();
+                $("#comment-row").append("<div class=\"comment row\"> " +
+                    "<a><img class=\"user-logo\" src=\"img/ronaldo.png\"></a><p> "
+                    + comments[i] +
+                    " </p> </div>"
+                );
+            }
+        }
     });
-});
+
+}
+
 
 
 

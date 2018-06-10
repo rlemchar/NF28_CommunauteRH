@@ -256,5 +256,57 @@ aside {
   transform : rotate(-3deg);
 }
 
+.display-comments{
+  color: black;
+  font-size: 14px;
+}
+
+.comment-button{
+  margin-bottom: 10px;
+  background-image: none;
+  background-color: rgb(114,183,189);
+  border: none;
+}
+
+#comment-modal-body{
+  margin: 20px;
+  margin-top: 15px;
+}
+
+#like-explanation{
+  position: absolute;
+  top: 15px;
+  left: 120px;
+}
+
+#like-row{
+  height: fit-content;
+  margin: 20px;
+}
+
+#add-comments{
+  padding: 1%;
+  font-size:14px;
+  border:12px groove rgb(114,183,189);
+  resize: none;
+  width: 530px;
+}
+
+#publish-comment-button{
+  margin-left: 463px;
+}
+
+.comment{
+  border-style: solid;
+  border-color: rgb(114,183,189) ;
+  border-width: 3px;
+  margin: 5px;
+  height:fit-content;
+  padding: 5px;
+  width:530px;
+}
+
+
+
 
 
