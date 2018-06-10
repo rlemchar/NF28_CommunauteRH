@@ -38,6 +38,7 @@
             <img class="centerImage"src="img/peaceful.jpg">
             <div id="welcome-text" class="centered">Bienvenue, Ronaldo</div>
             <a href="#" onclick="displayWhiteboard()"><i class="glyphicon glyphicon-menu-down top-right"></i></a>
+            <button type="button" id="lebouton" class="btn btn-default top-left"> openModal</button>
         </div>
 
         <!-------------------------------------------------------------------------->
@@ -148,7 +149,49 @@
                         <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent2()">Continue to 3</button>
                     -->
                     </div>
-    </div>
+                </div>
+            </div>
+        </form>
+
+                <!-- Comment modal -->
+
+                <!-- Button trigger modal
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" style="z-index: 20;" data-target="#commentModal">
+                    Launch demo modal
+                </button>
+-->
+                <!-- Modal -->
+        <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Commentaires et reactions</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <button type="button" class="btn btn-default" onclick="addReaction(1)"> addLikes</button>
+                        <p id="displayReactions"> </p>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+                <!------------------------->
 
 
     <footer>

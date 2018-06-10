@@ -22,6 +22,7 @@ function displayWhiteboard() {
 
 var tilted = 1;
 var tiltedSpec ="";
+var uniqueID = 0;
 
 $(document).ready(function(){
     $("#text-publi-option").click(function(){
@@ -36,7 +37,9 @@ $(document).ready(function(){
         }
         console.log(tiltedSpec);
         $("#publications").append(
-            "<aside draggable=\"true\" class=\"draggable " + tiltedSpec + " textPost\">\n" +
+            "<aside draggable=\"true\" id=\" " +
+            uniqueID++ +
+            "\" class=\"draggable " + tiltedSpec + " textPost\">\n" +
             "<h4>" +
             publicationTextTitle +
             "</h4>" +
@@ -50,7 +53,9 @@ $(document).ready(function(){
     $("#image-publi-option").click(function(){
         var postedImgURL = document.getElementById("downloadedImg").src;
         $("#publications").append(
-            "<aside draggable=\"true\" class=\"draggable imagePost\">" +
+            "<aside draggable=\"true\" id=\" " +
+            uniqueID++ +
+            "\" class=\"draggable imagePost\">" +
             "<img class=\"imageInsidePost\" draggable=\"false\" src=\" " + String(postedImgURL) + " \" alt=\"yourimage\" />" +
             "</aside>"
         );
@@ -59,7 +64,9 @@ $(document).ready(function(){
 
     $("#survey-publi-option").click(function(){
         $("#publications").append(
-            "<aside draggable=\"true\" class=\"draggable\">\n" +
+            "<aside draggable=\"true\" id=\" " +
+            uniqueID++ +
+            "\" class=\"draggable\">\n" +
             "    This is a survey.\n" +
             "</aside>"
         );
@@ -177,9 +184,52 @@ $(document).ready(function() {
  */
 
 
-
-
-
 // -----------------------------------------
+
+// Comments and reactions
+
+var tableOfComments = {};
+var tableNumberOfReactions = {};
+
+function addComment(id_pub,comment) {
+
+    var key = toString(id_pub);
+    if (tableNumberOfReactions.key == null){
+        tableNumberOfReactions.key = [comment];
+    }else{
+        tableNumberOfReactions.key.push(comment);
+    }
+}
+
+function addReaction(id_pub){
+
+    var key = toString(id_pub);
+    if (tableNumberOfReactions.key == null){
+        tableNumberOfReactions.key = 1;
+    }else{
+        tableNumberOfReactions.key++;
+    }
+    console.log(tableNumberOfReactions.key);
+}
+
+function displayReaction(id_pub){
+    var key = toString(id_pub);
+    return tableNumberOfReactions.key;
+}
+
+function openCommentModal(id_pub){
+
+    //$("#displayReactions").append(displayReaction(id_pub));
+
+}
+
+
+$(document).ready(function() {
+    $("#lebouton").click(function () {
+        $("#commentModal").modal();
+    });
+});
+
+
 
 
