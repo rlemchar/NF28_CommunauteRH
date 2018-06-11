@@ -39,8 +39,6 @@
             <div id="welcome-text" class="centered">Bienvenue, Ronaldo</div>
             <a href="#" onclick="displayWhiteboard()"><i class="glyphicon glyphicon-menu-down top-right"></i></a>
 
-            <button type="button" id="lebouton" class="btn btn-default top-left"> openModal</button>
-
         	<% } else if (p == 1) { %>
         		<iframe style='width:100%;height:100%;border:none' src='newProjectW'></iframe>
         	<% } else if (p == 2) { %>
@@ -190,7 +188,7 @@
 
                         <div class="container">
                             <div id="like-row" class="row">
-                                <button id="like-button" type="button" class="btn btn-info top-left comment-button" onclick="addReaction(1)">
+                                <button id="like-button" type="button" class="btn btn-info top-left comment-button" onclick="addReaction()">
                                     <span class="glyphicon glyphicon-thumbs-up"></span> J'aime
                                 </button>
 
@@ -209,7 +207,7 @@
                             </div>
 
                             <div id="publish-button-row" class="row">
-                                <button id="publish-comment-button" type="button" class="btn btn-info comment-button" onclick="addComment(1)">
+                                <button id="publish-comment-button" type="button" class="btn btn-info comment-button" onclick="addComment()">
                                    Publier
                                 </button>
 

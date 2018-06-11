@@ -22,10 +22,17 @@ function displayWhiteboard() {
 
 var tilted = 1;
 var tiltedSpec ="";
-var uniqueID = 0;
+var uniqueID = "";
+var uniqueIndex =0;
+
+
+function nextID(){
+    uniqueIndex++;
+}
 
 $(document).ready(function(){
     $("#text-publi-option").click(function(){
+        nextID();
         var publicationText = document.getElementById("publicationText").value;
         var publicationTextTitle = document.getElementById("publicationTextTitle").value;
         if (tilted == 1){
@@ -38,8 +45,10 @@ $(document).ready(function(){
         console.log(tiltedSpec);
         $("#publications").append(
             "<aside draggable=\"true\" id=\" " +
-            uniqueID++ +
-            "\" class=\"draggable " + tiltedSpec + " textPost\">\n" +
+            uniqueIndex +
+            "\" class=\"draggable " + tiltedSpec + " textPost\" onclick=\"showComments(" +
+            uniqueIndex +
+            ")\">"+
             "<h4>" +
             publicationTextTitle +
             "</h4>" +
@@ -54,23 +63,47 @@ $(document).ready(function(){
         var postedImgURL = document.getElementById("downloadedImg").src;
         $("#publications").append(
             "<aside draggable=\"true\" id=\" " +
-            uniqueID++ +
+            uniqueID +
             "\" class=\"draggable imagePost\">" +
             "<img class=\"imageInsidePost\" draggable=\"false\" src=\" " + String(postedImgURL) + " \" alt=\"yourimage\" />" +
             "</aside>"
         );
         makePostsDraggable();
+        uniqueID++;
     });
 
     $("#survey-publi-option").click(function(){
+        var question = document.getElementById("surveyTitle").value;
+        var optionPublicationRootID = "opRoot" + uniqueIndex;
         $("#publications").append(
             "<aside draggable=\"true\" id=\" " +
-            uniqueID++ +
-            "\" class=\"draggable\">\n" +
-            "    This is a survey.\n" +
+            uniqueIndex +
+            "\" class=\"draggable " + tiltedSpec + " textPost\" onclick=\"showComments(" +
+            uniqueIndex +
+            ")\">"+
+            "<h4>" +
+            question +
+            "</h4>" +
+            "<p class=\"option\" id=\"" +
+            optionPublicationRootID+
+            "\" style =\" white-space: pre-wrap;\">" +
+            "</p>" +
             "</aside>"
         );
+
+        for (var i= 0; i<= numberOfSurveyOptions;i++){
+            surveyOptionID = "op"+i;
+            var newOption = document.getElementById(surveyOptionID).value;
+            $("#"+ optionPublicationRootID).append(" <div class=\"row\"> </div><input type=\"radio\" name=\"op\"> " +
+                "<label for=\"op\">" +
+                newOption +
+                " </label> </div> ");
+
+        }
+
         makePostsDraggable();
+        uniqueID++;
+        numberOfSurveyOptions=0;
     });
 });
 
@@ -151,38 +184,21 @@ function makePostsDraggable(){
 // Survey
 
 var index = 0;
+// Pour recupérer les options
+var numberOfSurveyOptions=0;
 
 $(document).ready(function() {
     $("#surveyAdd").click(function () {
         nextID = "op" + index++;
-        console.log("in add option survey" + nextID);
-        $("#surveyOptions").append(" <div class=\"row\"> </div><input type=\"radio\" id=\" " + nextID + "\" name=\"op\"> " +
-            "<label for=\"op\"> <input class=\"addedOption\" id=\" " + nextID + "\" placeholder=\"Option\" autocomplete=\"off\"> </label> </div> ");
+        $("#surveyOptions").append(" <div class=\"row\"> </div><input type=\"radio\" name=\"op\"> " +
+            "<label for=\"op\"> <input class=\"addedOption\" id=\"" + nextID + "\" placeholder=\"Option\" autocomplete=\"off\"> </label> </div> ");
     });
+    numberOfSurveyOptions++;
 
     $("#surveyDelete").click(function () {
 
     });
 });
-
-
-
-/*
- <div>
-    <input type="radio" id="contactChoice1"
-     name="contact" value="email">
-    <label for="contactChoice1">Email</label>
-
-    <input type="radio" id="contactChoice2"
-     name="contact" value="telephone">
-    <label for="contactChoice2">Téléphone</label>
-
-    <input type="radio" id="contactChoice3"
-     name="contact" value="courrier">
-    <label for="contactChoice3">Courrier</label>
-  </div>
- */
-
 
 // -----------------------------------------
 
@@ -190,27 +206,16 @@ $(document).ready(function() {
 
 var tableOfComments = {};
 var tableNumberOfReactions = {};
+var currentPostCommentedID ="";
 
-$(document).ready(function() {
-    /*
-    $(".draggable").click(function () {
-        $("#commentModal").modal();
-        loadModal();
-    });
-*/
-    $(".draggable").hover(function () {
-        console.log("hover !");
-    });
-});
+function addComment() {
 
-function addComment(id_pub) {
 
-    var key = toString(id_pub);
     var comment = document.getElementById("add-comments").value;
-    if (tableOfComments.key == null){
-        tableOfComments.key = [comment];
+    if (tableOfComments[currentPostCommentedID] == null){
+        tableOfComments[currentPostCommentedID] = [comment];
     }else{
-        tableOfComments.key.push(comment);
+        tableOfComments[currentPostCommentedID].push(comment);
     }
     // Clearing comment area after publishing
     $(document).ready(function() {
@@ -219,23 +224,26 @@ function addComment(id_pub) {
     loadModal();
 }
 
-function addReaction(id_pub){
+function addReaction(){
 
-    var key = toString(id_pub);
-    if (tableNumberOfReactions.key == null){
-        tableNumberOfReactions.key = 1;
+    console.log("adding for :" + currentPostCommentedID);
+    if (tableNumberOfReactions[currentPostCommentedID] == null){
+        tableNumberOfReactions[currentPostCommentedID] = 1;
     }else{
-        tableNumberOfReactions.key++;
+        tableNumberOfReactions[currentPostCommentedID]++;
     }
-    console.log(tableNumberOfReactions.key);
+
     loadModal();
 }
 
 
-function loadModal(id_pub){
-    var key = toString(id_pub);
-    var numberOfReactions = tableNumberOfReactions.key;
-    var comments = tableOfComments.key;
+function loadModal(){
+    console.log("In modal for id : " + currentPostCommentedID );
+    $("#commentModal").modal();
+
+    var numberOfReactions = tableNumberOfReactions[currentPostCommentedID];
+    console.log("Number of reactions : " + numberOfReactions);
+    var comments = tableOfComments[currentPostCommentedID];
     var text = " personne a aimé ça.";
     $(document).ready(function() {
         if (numberOfReactions != null){
@@ -261,8 +269,28 @@ function loadModal(id_pub){
             }
         }
     });
-
 }
+
+
+function showComments(id_pub){
+    console.log("in show comments");
+    currentPostCommentedID = id_pub;
+    console.log("in show comments for :" + currentPostCommentedID);
+    loadModal();
+}
+
+$(document).ready(function() {
+    $('#commentModal').on('hidden.bs.modal', function () {
+        // clearing the modal when closed
+        console.log("CLOSED");
+        $("#displayReactions").empty();
+        $("#comment-row").empty();
+    });
+});
+
+
+
+
 
 
 
