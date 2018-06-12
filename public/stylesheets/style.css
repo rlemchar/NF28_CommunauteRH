@@ -314,5 +314,11 @@ aside {
     border-color:cornflowerblue;
 }
 
+.optionDisplay{
+  margin-right:0;
+  margin-left:0;
+  white-space: normal;
+}
+
 
 

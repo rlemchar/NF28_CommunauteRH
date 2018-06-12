@@ -22,17 +22,12 @@ function displayWhiteboard() {
 
 var tilted = 1;
 var tiltedSpec ="";
-var uniqueID = "";
+//var uniqueID = "";
 var uniqueIndex =0;
 
 
-function nextID(){
-    uniqueIndex++;
-}
-
 $(document).ready(function(){
     $("#text-publi-option").click(function(){
-        nextID();
         var publicationText = document.getElementById("publicationText").value;
         var publicationTextTitle = document.getElementById("publicationTextTitle").value;
         if (tilted == 1){
@@ -58,18 +53,22 @@ $(document).ready(function(){
             "</aside>"
         );
         makePostsDraggable();
+        // Clearing values after editing
+        $("#publicationTextTitle").val('');
+        $("#publicationText").val('');
+        uniqueIndex++;
     });
     $("#image-publi-option").click(function(){
         var postedImgURL = document.getElementById("downloadedImg").src;
         $("#publications").append(
             "<aside draggable=\"true\" id=\" " +
-            uniqueID +
-            "\" class=\"draggable imagePost\">" +
+            uniqueIndex +
+            "\" class=\"draggable imagePost\" onclick=\"showComments(" + uniqueIndex + ")\">" +
             "<img class=\"imageInsidePost\" draggable=\"false\" src=\" " + String(postedImgURL) + " \" alt=\"yourimage\" />" +
             "</aside>"
         );
         makePostsDraggable();
-        uniqueID++;
+        uniqueIndex++;
     });
 
     $("#survey-publi-option").click(function(){
@@ -94,7 +93,7 @@ $(document).ready(function(){
         for (var i= 0; i<= numberOfSurveyOptions;i++){
             surveyOptionID = "op"+i;
             var newOption = document.getElementById(surveyOptionID).value;
-            $("#"+ optionPublicationRootID).append(" <div class=\"row\"> </div><input type=\"radio\" name=\"op\"> " +
+            $("#"+ optionPublicationRootID).append(" <div class=\"row optionDisplay\"><input type=\"radio\" name=\"op\"> " +
                 "<label for=\"op\">" +
                 newOption +
                 " </label> </div> ");
@@ -102,7 +101,7 @@ $(document).ready(function(){
         }
 
         makePostsDraggable();
-        uniqueID++;
+        uniqueIndex++;
         numberOfSurveyOptions=0;
     });
 });
@@ -151,34 +150,6 @@ function makePostsDraggable(){
     }
 }
 
-// -----------------------------------------
-
-// Load images
-
-
-
-/*
-        // Load images
-        function readURL(input) {
-            console.log("in readURL");
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#selectedImage').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#imgPath").change(function(){
-            console.log("imgpath changed");
-            readURL(this);
-
-
-        });
-*/
 // -----------------------------------------
 
 // Survey
