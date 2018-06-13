@@ -76,12 +76,13 @@
         <div id="moitieGauche" class="col-md-6">
             <div id="divSelect">
                 <form name = "f">
-                    <p>Organigramme :
-                        <select id="selectOrganigramme" name="selectOrga" onchange="orga();">
+                    Organigramme :
+                    	<div class='orga' id='monEquipe' onclick="orga('equipe', this, document.getElementById('entreprise'));">Mon équipe</div>
+                    	<div class='orga' id='entreprise' onclick="orga('entreprise', this, document.getElementById('monEquipe'));">Entreprise</div>
+                   <!--     <select id="selectOrganigramme" name="selectOrga" onchange="orga();">
                             <option value = "equipe" selected>Mon équipe</option>
                             <option value = "entreprise">Entreprise</option>
-                        </select>
-                    </p>
+                        </select>  -->
                 </form>
                 
             </div>

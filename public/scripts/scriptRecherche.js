@@ -168,23 +168,18 @@ function sendMsg()
 
 document.getElementById("selectOrganigramme").addEventListener("change", orga);
 
-function orga()
+function orga(selected, ele1, ele2)
 {
     var path = "img/orga/";
-    var selected = document.forms.f.selectOrga.selectedIndex;
-    //alert(selected);
-    switch (selected){
-        case 0:
-            path += "equipe.png";
-            break;
-        case 1:
-            path += "entreprise.png";
-            break;
-    }
-    
+	path += selected + ".png";
+
     result = "<img id = \"imgOrga\" src = " + path + ">";
     
     document.getElementById("divOrga").innerHTML = result;
-    
-    //alert("test");
+    ele1.style.backgroundColor = "#8B949E";
+    ele1.style.color = "white";
+    ele2.style.backgroundColor = "#C0C0C0";
+    ele2.style.color = "#41484E";
+
+
 }

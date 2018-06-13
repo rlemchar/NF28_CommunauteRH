@@ -6,8 +6,8 @@
 
 #partieRecherche
 {
-    background-color:lightgrey;
-    color:black;
+    background-color:#E1E1E1;
+    color:#41484E;
     position:relative;
     height: 230px;
 }
@@ -28,10 +28,16 @@
 
 #addKW
 {
-    background-color:lightblue;
-    color:black;
-    border-style:solid;
-    border-color:cornflowerblue;
+    background-color:#C0C0C0;
+	color:#41484E;
+    border: none;
+	transition : all 0.3s;
+	cursor : default;
+}
+
+#addKW:hover {
+	background-color : #8B949E;
+	color : white;
 }
 
 #liste
@@ -61,11 +67,11 @@
 #divPersonne
 {
     top: 15px;
-    border-style: solid;
-    border-color: cornflowerblue;
-    border-width: thick;
+    border: none;
     background-color: white;
     margin-bottom: 15px;
+	color:#41484E;
+
 }
 
 #Profil 
@@ -129,5 +135,55 @@
     width: 100%;
 }
 
+input[type="text"] {
+	border : none;
+	padding : 0.2em 0.4em;
+}
 
+#boutonRecherche, #buttons button
+{
+    background-color:#C0C0C0;
+	color:#41484E;
+    border: none;
+	transition : all 0.3s;
+	cursor : default;
+}
+#boutonRecherche {
+	margin-top : -1em;
+}
 
+#boutonRecherche:hover, #buttons button:hover {
+	background-color : #8B949E;
+	color : white;
+}
+
+form[action="/recherche/addKeyWord"] {
+	margin-top : 1.5em;
+}
+
+#buttons button {
+	margin-bottom : 1.5em;
+	padding : 0.5em 2em;
+}
+#divSelect {
+	margin : 2em 0 0 1em;
+}
+form[name='f'] {
+	color:#41484E;
+	margin-bottom : 2em;
+}
+.orga {
+	display : inline-block;
+	padding : 0.4em 1em;
+	margin-left : 1em;
+	cursor : default;
+}
+#monEquipe {
+	background-color : #8B949E;
+	color : white;
+	transition : all 0.2s;
+}
+#entreprise {
+	background-color : #C0C0C0;
+	transition : all 0.2s;
+}
