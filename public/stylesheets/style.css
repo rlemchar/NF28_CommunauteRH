@@ -312,6 +312,8 @@ aside {
     color:black;
     border-style:solid;
     border-color:cornflowerblue;
+    border-radius: 15px;
+    padding : 5px;
 }
 
 .optionDisplay{
