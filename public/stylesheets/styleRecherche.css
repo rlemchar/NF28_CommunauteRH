@@ -1,7 +1,7 @@
 #moitieDroite
 {
     float:right;
-    font-family: "Helvetica";
+    font-family: arial;
 }
 
 #partieRecherche
@@ -22,8 +22,8 @@
 {
     float:left;
     position: relative;
-    left: -50px;
-    top: -5px;
+    padding-left: -50px;
+    padding-top: -5px;
 }
 
 #addKW
@@ -48,7 +48,7 @@
 {
     position: inherit;
     top: 140px;
-    left: 10px;
+    padding-left: 10px;
 }
 
 #resultatsRecherche
@@ -65,27 +65,28 @@
     border-color: cornflowerblue;
     border-width: thick;
     background-color: white;
+    margin-bottom: 15px;
 }
 
 #Profil 
 {
-    top: 10px;
+    padding-top: 10px;
 }
 
 #Compétences
 {
-    top: 10px;
+    padding-top: 10px;
 }
 
 #Langues
 {
-    top: 10px;
+    padding-top: 10px;
 }
 
 #buttons
 {
-    bottom : 2px;
-    left : 25px;
+    padding-bottom : 2px;
+    padding-left : 25px;
 }
 
 #sendMsg
@@ -121,6 +122,11 @@
 #selectOrganigramme
 {
     width: 150px;
+}
+
+#imgOrga
+{
+    width: 100%;
 }
 
 

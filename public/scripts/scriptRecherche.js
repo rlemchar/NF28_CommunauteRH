@@ -163,10 +163,28 @@ function results() {
 
 function sendMsg()
 {
-    alert("test");
+    alert("renvoi vers une page de messagerie");
 }
+
+document.getElementById("selectOrganigramme").addEventListener("change", orga);
 
 function orga()
 {
-    alert("teste");
+    var path = "img/orga/";
+    var selected = document.forms.f.selectOrga.selectedIndex;
+    //alert(selected);
+    switch (selected){
+        case 0:
+            path += "equipe.png";
+            break;
+        case 1:
+            path += "entreprise.png";
+            break;
+    }
+    
+    result = "<img id = \"imgOrga\" src = " + path + ">";
+    
+    document.getElementById("divOrga").innerHTML = result;
+    
+    //alert("test");
 }
