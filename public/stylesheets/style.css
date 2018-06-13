@@ -308,10 +308,18 @@ aside {
 
 #recherche
 {
-    background-color:lightblue;
-    color:black;
-    border-style:solid;
-    border-color:cornflowerblue;
+	width : 100%;
+    background-color:#C0C0C0;
+    color:#41484E;
+	border:none;
+	padding : 1em 0;
+	font-size : 1.2em;
+	transition : all 0.3s;
+	cursor : default;
+}
+#recherche:hover {
+	background-color : #8B949E;
+	color : white;
 }
 
 .optionDisplay{

@@ -114,6 +114,10 @@
 		background-color : #F8F8F8;
 		margin-right : 1em;
 		padding : 0.5em;
+		transition : background-color 0.2s;
+	}
+	#servicesProject > table:hover {
+		background-color : #F0F0F0;
 	}
 	.logoService {
 		height : 2em;
@@ -204,6 +208,10 @@
 		background-size : 100%;
 		background-position : center;
 		background-repeat : no-repeat;
+		transition:transform 2s;
+	}
+	#configureProject:hover {
+		transform : rotate(360deg);
 	}
 	</style>
 </head>
@@ -419,6 +427,7 @@
 		$(function() {
 			loadContent();
 			moreInfo();
+			$("#configureProject").click(() => {window.parent.location.href = 'newProject';});
 		});
 	
 	</script>

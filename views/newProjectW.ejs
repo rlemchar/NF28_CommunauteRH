@@ -62,10 +62,18 @@
 		#cancelButtonHeaderNewProject {
 			color : #252F3A;
 			right : 3%;
+			transition : background-color 0.2s;
+		}
+		#cancelButtonHeaderNewProject:hover {
+			background-color : #F7F7FA;
 		}
 		#validateButtonHeaderNewProject {
 			color : white;
 			background-color : #252F3A;
+			transition: background-color 0.2s;
+		}
+		#validateButtonHeaderNewProject:hover {
+			background-color : #353F49;
 		}
 		#contentNewProject {
 			position : relative;
@@ -526,6 +534,7 @@
 		function size() {
 			$(".imgMemberNewProject").css("height", $(".imgMemberNewProject").width());
 			$(".isAdminNewProject > div").css("width", $(".isAdminNewProject > div").height());		
+			$("#buttonHeaderNewProject > div").click(() => {window.parent.location.href = "/";});
 		}
 
 		
