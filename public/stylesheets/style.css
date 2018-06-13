@@ -136,9 +136,11 @@ a {
   background-color : whitesmoke;
   overflow:hidden;
   height : 0;
+  margin-top : -1px;
   transition : height 0.5s;
   transition-timing-function : ease-in;
   background-image: url(../img/tableau.jpg);
+  background-size : 100% 100%;
 }
 
 #plusButton {
@@ -146,6 +148,14 @@ a {
   top: 40%;
   left: 95%;
   transform: translate(-50%, -50%);
+  background-color : transparent;
+  cursor : default;
+  transition : background-color 0.2s;
+  border-radius : 100%;
+}
+
+#plusButton:hover {
+   background-color : rgba(139,148,158, 0.4);
 }
 
 #plus{
@@ -178,13 +188,29 @@ aside {
   position:  absolute;
   left: 0;
   top: 0; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-  background: rgba(255,255,255,0.66);
-  border: 2px  solid rgba(0,0,0,0.5);
-  border-radius: 4px; padding: 8px;
-  resize: both;
+   resize: both;
   overflow: auto;
   height: fit-content;
+  color : rgb(73,89,98);
+  padding : 0 0.5em;
   width:auto;
+  border:1px solid #E8E8E8;  
+  border-top:0.5em solid #fdfd86;
+  font-family:'Reenie Beanie'; 
+  font-size : 2em;   
+  border-bottom-right-radius: 4em 0.5em;
+  display:inline-block;    
+   background: #ffff88; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* IE10+ */
+background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+aside > h4 {
+	font-size : 1.25em;
 }
 
 #publicationText{
@@ -287,7 +313,6 @@ aside {
 #add-comments{
   padding: 1%;
   font-size:14px;
-  border:12px groove rgb(114,183,189);
   resize: none;
   width: 530px;
 }
@@ -304,6 +329,7 @@ aside {
   height:fit-content;
   padding: 5px;
   width:530px;
+  padding: 0.5em 2em;
 }
 
 #recherche
