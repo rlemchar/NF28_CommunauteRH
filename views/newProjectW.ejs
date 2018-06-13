@@ -539,7 +539,9 @@
 
 		
 		function members() {
-			$("#addMemberNewProject").click(function() {
+			$("#addMemberNewProject").click(function() { 
+				window.parent.location = "/recherche";
+				/*
 				$(this).attr("rowspan", $(this).prop("rowSpan")+1);
 				$(this).parent().parent().append("<tr id='trMember2' style='display:none'><td class='nameMemberNewProject'><div><div class='imgMemberNewProject'></div><div class='nameTextMemberNewProject'>Roxane Lemcharki</div><div class='jobMemberNewProject'>Consultante</div></div></td><td class='inputRoleNewProject'><input type='text' value='Indiquez le rôle dans le projet'/></td><td class='isAdminNewProject'><div><div></div></div></td><td class='memberOptionNewProject'><div></div></td></tr>");
 				inputDefaultValue($('#trMember2').find('input'));
@@ -547,7 +549,7 @@
 				$('#trMember2').show(300);
 				size();
 				checkBoxIsAdmin(2);
-
+		*/
 			});
 		}
 		

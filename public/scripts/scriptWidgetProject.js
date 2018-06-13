@@ -25,9 +25,9 @@ function Project(id, name, tasks, indexTask) {
 
 // Array of projects, temporary (to be obtained from the SQL database in the future)
 var P = [
-	new Project(1,"Création d'un outil de recherche",[["Implémenter la BDD","14/05/2018"],["Faire les algos de recherche","27/05/2018"],["Implémenter l'interface","05/06/2018"],["Ajouter au serveur","14/06/2018"]],1),
-	new Project(2,"Développement d'un whiteboard",[["Dessiner l'interface","12/05/2018"],["Implémenter les fonctionnalités","30/05/2018"],["Gérer le temps réel","04/06/2018"],["Ajouter à l'interface","10/06/2018"]],2),
-	new Project(3,"Conception d'un outil de management de projets",[["Créer le widget","16/05/2018"],["Faire une page d'ajout","02/06/2018"],["Développer l'affichage","09/06/2018"],["Implémenter au serveur","12/06/2018"]],2)
+	new Project(1,"Création d'un outil de recherche",[["Implémenter la BDD","14/05/2018"],["Faire les algos de recherche","27/05/2018"],["Implémenter l'interface","05/06/2018"],["Ajouter au serveur","19/06/2018"]],1),
+	new Project(2,"Développement d'un whiteboard",[["Dessiner l'interface","12/05/2018"],["Implémenter les fonctionnalités","30/05/2018"],["Gérer le temps réel","04/06/2018"],["Ajouter à l'interface","17/06/2018"]],2),
+	new Project(3,"Conception d'un outil de management de projets",[["Créer le widget","16/05/2018"],["Faire une page d'ajout","02/06/2018"],["Développer l'affichage","09/06/2018"],["Implémenter au serveur","14/06/2018"]],2)
 ];
 
 // Display the projects from the array P
