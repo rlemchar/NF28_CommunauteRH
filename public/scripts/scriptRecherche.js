@@ -157,7 +157,7 @@ function results() {
     };
 
     // Accède au xml source dans une URL 
-    var path = "http://www.k-upload.fr/afficher-fichier-2018-06-15-1307d1d79test.xml.html";
+    var path = "/recherche/bdd";
     xmlhttp.open("GET", path, true);
     xmlhttp.send(null);
 }
