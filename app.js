@@ -77,7 +77,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/recherche',function(req,res){
-    //res.sendFile(__dirname + '/public/scripts/test.xml');
+    res.sendFile(__dirname + '/public/scripts/test.xml');
     res.render("recherche.ejs", {keywords: req.session.keywords});
 });
 
