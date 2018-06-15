@@ -157,7 +157,7 @@ function results() {
     };
 
     // Accède au xml source dans une URL 
-    var path = "/recherche";
+    var path = "/recherche/bdd";
     xmlhttp.open("GET", path, true);
     xmlhttp.send(null);
 }
