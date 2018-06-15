@@ -140,7 +140,7 @@ function results() {
                     
                     result += "<div id=\"buttons\" class=\"col-md-12\">"
                     result += "<button id=\"sendMsg\" onclick=\"sendMsg();\">Envoyer un message</button>";
-                    result += "<a href=\"//localhost:8080/newProject\"><button id=\"addToProject\" onclick=\"\">Ajouter à un projet</button></a>";
+                    result += "<a href=\"https://localhost:8080/newProject\"><button id=\"addToProject\" onclick=\"\">Ajouter à un projet</button></a>";
                     result += "</div>";
 
                     result += "</div>";
@@ -157,7 +157,7 @@ function results() {
     };
 
     // Accède au xml source dans une URL 
-    var path = "//localhost:8080/recherche";
+    var path = "https://localhost:8080/recherche/bdd";
     xmlhttp.open("GET", path, true);
     xmlhttp.send(null);
 }
