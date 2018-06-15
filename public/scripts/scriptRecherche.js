@@ -1,6 +1,7 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 function getXMLHttpRequest() {
+    alert("truc");
     var xhr = null;
     if (window.XMLHttpRequest || window.ActiveXObject) {
         if (window.ActiveXObject) {
