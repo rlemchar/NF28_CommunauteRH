@@ -1,7 +1,6 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 function getXMLHttpRequest() {
-    alert("truc");
     var xhr = null;
     if (window.XMLHttpRequest || window.ActiveXObject) {
         if (window.ActiveXObject) {
@@ -36,9 +35,9 @@ function results() {
     xmlhttp = getXMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
-        //alert("status = " + xmlhttp.status + " et readyState = " + xmlhttp.readyState);
+        alert("status = " + xmlhttp.status + " et readyState = " + xmlhttp.readyState);
         if (xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.status == 0)) {
-            //alert(xmlhttp.responseText);
+            alert(xmlhttp.responseText);
             var xmlDoc = xmlhttp.responseXML;
             var ppl = xmlDoc.getElementsByTagName("personne");
             //variables pour la gestion des données
