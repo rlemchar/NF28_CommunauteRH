@@ -170,7 +170,7 @@ document.getElementById("selectOrganigramme").addEventListener("change", orga);
 
 function orga(selected, ele1, ele2)
 {
-    var path = "img/orga/";
+    var path = "img/";
 	path += selected + ".png";
 
     result = "<img id = \"imgOrga\" src = " + path + ">";
