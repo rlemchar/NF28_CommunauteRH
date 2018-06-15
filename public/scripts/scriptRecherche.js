@@ -29,6 +29,7 @@ function results() {
     // Requête pour récupérer les données du formulaire
     var form = document.querySelector("form");
     var nom = form.elements.nom.value;
+    alert(nom);
     var prenom = form.elements.prenom.value;
     var metier = form.elements.job.value;
     var keywords = document.getElementsByTagName("span"); //boucle commence à i = 2
