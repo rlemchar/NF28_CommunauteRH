@@ -23,8 +23,6 @@ function getXMLHttpRequest() {
 var xmlhttp = null;
 
 function results() {
-    alert("click");
-    
     // Requête pour récupérer les données du formulaire
     var form = document.querySelector("form");
     var nom = form.elements.nom.value;
