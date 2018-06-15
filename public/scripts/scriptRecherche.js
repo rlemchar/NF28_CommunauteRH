@@ -29,7 +29,7 @@ function results() {
     var prenom = form.elements.prenom.value;
     var metier = form.elements.job.value;
     var keywords = document.getElementsByTagName("span"); //boucle commence à i = 2
-    xmlhttp = new XMLHttpRequest();
+    xmlhttp = getXMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
         //alert("status = " + xmlhttp.status + " et readyState = " + xmlhttp.readyState);
