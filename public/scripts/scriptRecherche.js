@@ -171,7 +171,7 @@ document.getElementById("selectOrganigramme").addEventListener("change", orga);
 function orga(selected, ele1, ele2)
 {
     var path = "img/";
-	path += selected + ".png";
+	path += selected + ".PNG";
 
     result = "<img id = \"imgOrga\" src = " + path + ">";
     
