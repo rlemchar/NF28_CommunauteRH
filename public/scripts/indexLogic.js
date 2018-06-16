@@ -24,6 +24,7 @@ var tilted = 1;
 var tiltedSpec ="";
 //var uniqueID = "";
 var uniqueIndex =0;
+var optionRecuperationIndex=0;
 
 
 $(document).ready(function(){
@@ -39,7 +40,7 @@ $(document).ready(function(){
         }
         console.log(tiltedSpec);
         $("#publications").append(
-            "<aside draggable=\"true\" id=\" " +
+            "<aside draggable=\"true\" id=\"" +
             uniqueIndex +
             "\" class=\"draggable " + tiltedSpec + " textPost\" onclick=\"showComments(" +
             uniqueIndex +
@@ -61,7 +62,7 @@ $(document).ready(function(){
     $("#image-publi-option").click(function(){
         var postedImgURL = document.getElementById("downloadedImg").src;
         $("#publications").append(
-            "<aside draggable=\"true\" id=\" " +
+            "<aside draggable=\"true\" id=\"" +
             uniqueIndex +
             "\" class=\"draggable imagePost\" onclick=\"showComments(" + uniqueIndex + ")\">" +
             "<img class=\"imageInsidePost\" draggable=\"false\" src=\" " + String(postedImgURL) + " \" alt=\"yourimage\" />" +
@@ -72,10 +73,11 @@ $(document).ready(function(){
     });
 
     $("#survey-publi-option").click(function(){
+        console.log("Nombre d'options enregistrées" + numberOfSurveyOptions);
         var question = document.getElementById("surveyTitle").value;
         var optionPublicationRootID = "opRoot" + uniqueIndex;
         $("#publications").append(
-            "<aside draggable=\"true\" id=\" " +
+            "<aside draggable=\"true\" id=\"" +
             uniqueIndex +
             "\" class=\"draggable " + tiltedSpec + " textPost\" onclick=\"showComments(" +
             uniqueIndex +
@@ -90,8 +92,8 @@ $(document).ready(function(){
             "</aside>"
         );
 
-        for (var i= 0; i<= numberOfSurveyOptions;i++){
-            surveyOptionID = "op"+i;
+        for (var i= 0; i< numberOfSurveyOptions;i++){
+            surveyOptionID = "op"+ optionRecuperationIndex++;
             var newOption = document.getElementById(surveyOptionID).value;
             $("#"+ optionPublicationRootID).append(" <div class=\"row optionDisplay\"><input type=\"radio\" name=\"op\"> " +
                 "<label for=\"op\">" +
@@ -101,6 +103,11 @@ $(document).ready(function(){
         }
 
         makePostsDraggable();
+        // clearing the inputs
+        $(document).ready(function() {
+            $("#surveyOptions").empty();
+            $("#surveyTitle").val('');
+        });
         uniqueIndex++;
         numberOfSurveyOptions=0;
     });
@@ -160,11 +167,12 @@ var numberOfSurveyOptions=0;
 
 $(document).ready(function() {
     $("#surveyAdd").click(function () {
+        numberOfSurveyOptions++;
         nextID = "op" + index++;
         $("#surveyOptions").append(" <div class=\"row\"> </div><input type=\"radio\" name=\"op\"> " +
             "<label for=\"op\"> <input class=\"addedOption\" id=\"" + nextID + "\" placeholder=\"Option\" autocomplete=\"off\"> </label> </div> ");
     });
-    numberOfSurveyOptions++;
+
 
     $("#surveyDelete").click(function () {
 
