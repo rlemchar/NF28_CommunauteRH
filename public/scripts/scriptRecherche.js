@@ -25,10 +25,10 @@ var xmlhttp = null;
 function results() {
     // Requête pour récupérer les données du formulaire
     var form = document.querySelector("form");
-    var nom = form.elements.nom.value;
+    var nom = form.elements.nom.value.toLowerCase();
     //alert(nom);
-    var prenom = form.elements.prenom.value;
-    var metier = form.elements.job.value;
+    var prenom = form.elements.prenom.value.toLowerCase();
+    var metier = form.elements.job.value.toLowerCase();
     var keywords = document.getElementsByTagName("span"); //boucle commence à i = 2
     xmlhttp = getXMLHttpRequest();
 
@@ -75,7 +75,7 @@ function results() {
                 city = pers.getElementsByTagName("ville")[0].childNodes[0].nodeValue;
                 
                 
-                if (nom == lastname || prenom == name || metier == job){
+                if (nom == lastname.toLowerCase() || prenom == name.toLowerCase() || metier == job.toLowerCase()){
                     test = 1;
                 }
 
@@ -83,22 +83,22 @@ function results() {
                 //alert(keywords.length);
                 while(j < keywords.length && test != 1) {
                     //alert(keywords[j].innerHTML);
-                    currentKW = keywords[j].innerHTML;
+                    currentKW = keywords[j].innerHTML.toLowerCase();
                     k = 0;
                     while (k < comp.length && test != 1) {
-                        if (comp[k].childNodes[0].nodeValue == currentKW) {
+                        if (comp[k].childNodes[0].nodeValue.toLowerCase() == currentKW) {
                             test = 1;
                         }
                         k++;
                     }
                     k = 0;
                     while (k < lan.length && test != 1) {
-                        if (lan[k].childNodes[0].nodeValue == currentKW) {
+                        if (lan[k].childNodes[0].nodeValue.toLowerCase() == currentKW) {
                             test = 1;
                         }
                         k++;
                     }
-                    if (currentKW == city || currentKW == company){
+                    if (currentKW == city.toLowerCase() || currentKW == company.toLowerCase()){
                         test = 1;
                     }
                     j++;
