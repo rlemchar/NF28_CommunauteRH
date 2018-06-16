@@ -82,7 +82,7 @@ app.get('/recherche',function(req,res){
 });
 
 app.get('/recherche/bdd',function(req,res){
-    res.sendFile("http://www.k-upload.fr/afficher-fichier-2018-06-15-1307d1d79test.xml.html");
+    res.sendFile("/public/scripts/test.xml", { root : __dirname});
 });
 
 app.post('/recherche/addKeyWord', urlencodedParser, function(req, res) {
