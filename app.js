@@ -77,15 +77,12 @@ app.use(function(req, res, next){
 });
 
 app.get('/recherche',function(req,res){
+    //res.sendFile(__dirname + '/public/scripts/test.xml');
     res.render("recherche.ejs", {keywords: req.session.keywords});
 });
 
 app.get('/recherche/bdd',function(req,res){
-    res.sendFile(__dirname + '/public/scripts/test.xml');
-});
-
-app.get('/recherche/orga1',function(req,res){
-    res.sendFile(__dirname + '/public/img/orga/equipe.png');
+    res.sendFile("/public/scripts/test.xml", { root : __dirname});
 });
 
 app.post('/recherche/addKeyWord', urlencodedParser, function(req, res) {

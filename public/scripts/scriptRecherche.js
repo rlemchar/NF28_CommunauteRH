@@ -25,11 +25,12 @@ var xmlhttp = null;
 function results() {
     // Requête pour récupérer les données du formulaire
     var form = document.querySelector("form");
-    var nom = form.elements.nom.value;
-    var prenom = form.elements.prenom.value;
-    var metier = form.elements.job.value;
+    var nom = form.elements.nom.value.toLowerCase();
+    //alert(nom);
+    var prenom = form.elements.prenom.value.toLowerCase();
+    var metier = form.elements.job.value.toLowerCase();
     var keywords = document.getElementsByTagName("span"); //boucle commence à i = 2
-    xmlhttp = new XMLHttpRequest();
+    xmlhttp = getXMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
         //alert("status = " + xmlhttp.status + " et readyState = " + xmlhttp.readyState);
@@ -74,7 +75,7 @@ function results() {
                 city = pers.getElementsByTagName("ville")[0].childNodes[0].nodeValue;
                 
                 
-                if (nom == lastname || prenom == name || metier == job){
+                if (nom == lastname.toLowerCase() || prenom == name.toLowerCase() || metier == job.toLowerCase()){
                     test = 1;
                 }
 
@@ -82,22 +83,22 @@ function results() {
                 //alert(keywords.length);
                 while(j < keywords.length && test != 1) {
                     //alert(keywords[j].innerHTML);
-                    currentKW = keywords[j].innerHTML;
+                    currentKW = keywords[j].innerHTML.toLowerCase();
                     k = 0;
                     while (k < comp.length && test != 1) {
-                        if (comp[k].childNodes[0].nodeValue == currentKW) {
+                        if (comp[k].childNodes[0].nodeValue.toLowerCase() == currentKW) {
                             test = 1;
                         }
                         k++;
                     }
                     k = 0;
                     while (k < lan.length && test != 1) {
-                        if (lan[k].childNodes[0].nodeValue == currentKW) {
+                        if (lan[k].childNodes[0].nodeValue.toLowerCase() == currentKW) {
                             test = 1;
                         }
                         k++;
                     }
-                    if (currentKW == city || currentKW == company){
+                    if (currentKW == city.toLowerCase() || currentKW == company.toLowerCase()){
                         test = 1;
                     }
                     j++;
@@ -139,7 +140,7 @@ function results() {
                     
                     result += "<div id=\"buttons\" class=\"col-md-12\">"
                     result += "<button id=\"sendMsg\" onclick=\"sendMsg();\">Envoyer un message</button>";
-                    result += "<a href=\"//localhost:8080/newProject\"><button id=\"addToProject\" onclick=\"\">Ajouter à un projet</button></a>";
+                    result += "<a href=\"/newProject\"><button id=\"addToProject\" onclick=\"\">Ajouter à un projet</button></a>";
                     result += "</div>";
 
                     result += "</div>";
@@ -156,7 +157,7 @@ function results() {
     };
 
     // Accède au xml source dans une URL 
-    var path = "//localhost:8080/recherche/bdd";
+    var path = "/recherche/bdd";
     xmlhttp.open("GET", path, true);
     xmlhttp.send(null);
 }
@@ -170,8 +171,8 @@ document.getElementById("selectOrganigramme").addEventListener("change", orga);
 
 function orga(selected, ele1, ele2)
 {
-    var path = "img/orga/";
-	path += selected + ".png";
+    var path = "img/";
+	path += selected + ".PNG";
 
     result = "<img id = \"imgOrga\" src = " + path + ">";
     
